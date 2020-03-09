@@ -1,0 +1,21 @@
+.navbar {
+	border-style: solid;
+	border-width: 0 0 30px 0;
+	border-image: url("../assets/images/horizontal-line-pattern.png") 100 0 repeat;
+}
+
+.navbar {
+	padding: 1.5rem 1rem;	
+}
+.navbar-brand {
+	img {
+		width: 220px;
+	}
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: $navy;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	font-weight: bold;
+}
