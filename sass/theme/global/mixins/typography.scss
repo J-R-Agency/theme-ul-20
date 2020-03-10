@@ -1,0 +1,19 @@
+@mixin _work-sans-regular {
+	font-family: 'work-sans-regular';
+}
+
+@mixin _work-sans-semibold {
+	font-family: 'work-sans-semibold';	
+}
+
+@mixin _work-sans-light {
+	font-family: 'work-sans-light';	
+}
+
+a {
+	@include _work-sans-regular;
+}
+
+h1 {
+	@include _work-sans-regular;
+}

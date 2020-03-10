@@ -11,11 +11,11 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-get_header();
-
-while ( have_posts() ) :
-	the_post();
-	get_template_part( 'loop-templates/content', 'empty' );
-endwhile;
-
-get_footer();
+get_header(); ?>
+	<section class="generic bg-white">
+		<h1>Test</h1>
+	</section>
+	<section class="generic bg-navy">
+		<h1>Test</h1>
+	</section>
+<?php get_footer(); ?>
