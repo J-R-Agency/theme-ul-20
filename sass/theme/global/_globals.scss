@@ -11,7 +11,7 @@
 }
 
 @mixin global-padding {
-	padding: 3rem 3rem;
+	padding: 3rem 1rem;
 	@include respond-to('md'){
 		padding: 3rem 10rem;
 	}	
@@ -87,4 +87,8 @@
 
 .font-yellow {
 	color: $yellow;
+}
+
+hr {
+	border: 1px solid $navy;
 }

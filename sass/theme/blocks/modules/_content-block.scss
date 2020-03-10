@@ -1,0 +1,9 @@
+.module_content_block {
+	img {
+		border-radius: 50%;
+		width: 100%;
+		@include respond-to('md'){
+			width: 60%;
+		}
+	}
+}

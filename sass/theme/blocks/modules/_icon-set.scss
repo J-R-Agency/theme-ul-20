@@ -1,0 +1,18 @@
+.module_icon_set {
+	color: $navy;
+}
+
+.primary-icon-wrapper {
+	margin: 1rem;
+}
+
+.primary-icon {
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+}
+
+.primary-icon-name {
+	display: flex;
+	align-items: center;
+}

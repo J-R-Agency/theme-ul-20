@@ -25,12 +25,6 @@ get_header(); ?>
 
 <?php include_once (get_template_directory() . '/global-templates/template-parts/global-standfirst.tpl'); ?>
 
-<section class="generic bg-white">
-	<h1>Test</h1>
-</section>
-
-<section class="generic bg-navy">
-	<h1>Test</h1>
-</section>
+<?php get_template_part( 'loop-templates/content', 'flexible' ); ?>
 
 <?php get_footer(); ?>
