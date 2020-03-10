@@ -4,21 +4,87 @@
 	border-image: url("../assets/images/horizontal-line-pattern.png") 100 0 repeat;
 }
 
-.generic {
-	padding: 3rem 10rem;
+@mixin patterned-top-border {
+	border-style: solid;
+	border-width: 30px 0 0 0;
+	border-image: url("../assets/images/horizontal-line-pattern.png") 100 0 repeat;
 }
+
+@mixin global-padding {
+	padding: 3rem 3rem;
+	@include respond-to('md'){
+		padding: 3rem 10rem;
+	}	
+}
+
+.patterned-top-border {
+	@include patterned-top-border;
+}
+
+.patterned-bottom-border {
+	@include patterned-bottom-border;
+}
+
+.generic {
+	@include global-padding;
+}
+
+
+// COLORS ----
 
 .bg-white {
 	background-color: white;
-	color: $navy;
 }
 
 .bg-navy {
 	background-color: $navy;
-	color: white;
 }
 
 .bg-grey {
 	background-color: $grey;
 	color: $navy;
+}
+
+.bg-purple {
+	background-color: $purple;
+}
+
+.bg-coral {
+	background-color: $coral;
+}
+
+.bg-teal {
+	background-color: $teal;
+}
+
+.bg-yellow {
+	background-color: $yellow;
+}
+
+.font-white {
+	color: white;
+}
+
+.font-navy {
+	color: $navy;
+}
+
+.font-grey {
+	color: $grey;
+}
+
+.font-purple {
+	color: $purple;
+}
+
+.font-coral {
+	color: $coral;
+}
+
+.font-teal {
+	color: $teal;
+}
+
+.font-yellow {
+	color: $yellow;
 }

@@ -15,5 +15,15 @@ a {
 }
 
 h1 {
+	@include _work-sans-semibold;
+}
+
+h2 {
 	@include _work-sans-regular;
+	font-size: 1.5rem;
+}
+
+p {
+	@include _work-sans-light;
+	font-size: 1.2rem;
 }

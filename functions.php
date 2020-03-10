@@ -29,3 +29,23 @@ $understrap_includes = array(
 foreach ( $understrap_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
+
+/*-- ADD ACF OPTIONS --*/
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	acf_add_options_sub_page("Header");
+	acf_add_options_sub_page("Footer");
+}
+
+/*-- REGISTER MENUS --*/
+
+function register_my_menus() {
+  register_nav_menus(
+    array(
+      'footer-menu' => __( 'Footer Menu' )
+     )
+   );
+ }
+ add_action( 'init', 'register_my_menus' );
