@@ -1,0 +1,32 @@
+.navbar {
+	padding: 1rem;	
+	@include patterned-bottom-border;
+	
+	@include respond-to('md'){
+		padding: 1rem 4rem;
+	}
+}
+.navbar-brand {
+	img {
+		width: 220px;
+	}
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: $navy;
+	padding-right: 1.2rem;
+	padding-left: 1.2rem;
+	font-weight: bold;
+	font-size: 1.2rem;
+	&:hover {
+		color: $yellow;
+	}
+	&:active, &:visited {
+		color: $navy;
+	}
+	
+}
+
+.navbar-dark .navbar-toggler-icon {
+	background-image: url("../assets/images/hamburger-menu.svg")
+}

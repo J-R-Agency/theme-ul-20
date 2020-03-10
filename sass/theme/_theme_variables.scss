@@ -3,4 +3,33 @@
 // Just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
 
 
-$primary: #5533ff; // Thats a sample how you could change a BootStrap variable.
+$primary: white; // Thats a sample how you could change a BootStrap variable.
+
+$purple: #A062A5;
+$coral: #FF5D68;
+$yellow: #FFBB3C;
+$teal: #69DFC9;
+$navy: #261844;
+$grey: #f5f5f5;
+
+// BREAKPOINTS -------
+
+$sm: 769px;
+$md: 1025px;
+$lg: 1400px;
+$xl: 1600px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 769px,
+  md: 1025px, 
+  lg: 1400px,
+  xl: 1600px
+) !default;
+
+$container-max-widths: (
+  sm: 769px,
+  md: 1025px,
+  lg: 1400px,
+  xl: 1600px
+) !default;
