@@ -3,7 +3,7 @@
 }
 
 .primary-icon-wrapper {
-	margin: 1rem;
+	margin: 1rem 0;
 }
 
 .primary-icon {
@@ -15,4 +15,11 @@
 .primary-icon-name {
 	display: flex;
 	align-items: center;
+}
+
+.secondary-icon-name {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
 }

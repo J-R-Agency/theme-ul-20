@@ -95,11 +95,11 @@ if( have_rows('fc_content_block') ):
 									<div class='col-6'>
 										<div class='primary-icon-wrapper'>
 											<div class='row'>
-												<div class='col-6'>
+												<div class='col-12 col-md-6'>
 													<img src='".$mis_primary_icon_image."' alt='".$mis_primary_icon_image['alt']. "' class='primary-icon'>
 												</div>
 											
-												<div class='col-6 primary-icon-name'>
+												<div class='col-12 col-md-6 primary-icon-name'>
 													<span>".$mis_primary_icon_name."</span>
 												</div>
 											</div>
@@ -124,11 +124,11 @@ if( have_rows('fc_content_block') ):
 									<div class='col-4'>
 										<div class='secondary-icon-wrapper'>
 											<div class='row'>
-												<div class='col-6'>
+												<div class='col-12 col-md-6'>
 													<img src='".$mis_secondary_icon_image['url']."' alt='".$mis_secondary_icon_image['alt']. "' class='secondary-icon'>
 												</div>
 											
-												<div class='col-6 secondary-icon-name'>
+												<div class='col-12 col-md-6 secondary-icon-name'>
 													<span>".$mis_secondary_icon_name."</span>
 												</div>
 											</div>
