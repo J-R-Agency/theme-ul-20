@@ -88,19 +88,18 @@ if( have_rows('fc_content_block') ):
         				<div class='row'>";
 						if( have_rows('mis_primary_icon_set') ):
 					    	while( have_rows('mis_primary_icon_set') ): the_row();
-						    	$mis_primary_icon_image = wp_get_attachment_url(get_sub_field('mis_primary_icon_image'));
-								$mis_primary_icon_name = get_sub_field('mis_primary_icon_name');
+						    	$mis_primary_icon_image = get_sub_field('mis_primary_icon_image');
 								
 								echo "
 									<div class='col-6'>
 										<div class='primary-icon-container'>
 											<div class='row'>
 												<div class='col-12 col-md-6 primary-icon-wrapper'>
-													<img src='".$mis_primary_icon_image."' alt='".$mis_primary_icon_image['alt']. "' class='primary-icon'>
+													<img src='".$mis_primary_icon_image['url']."' alt='".$mis_primary_icon_image['alt']. "' class='primary-icon'>
 												</div>
 											
 												<div class='col-12 col-md-6 primary-icon-name'>
-													<span>".$mis_primary_icon_name."</span>
+													<span>".$mis_primary_icon_image['caption']."</span>
 												</div>
 											</div>
 										</div>
@@ -118,7 +117,6 @@ if( have_rows('fc_content_block') ):
 						if( have_rows('mis_secondary_icon_set') ):
 					    	while( have_rows('mis_secondary_icon_set') ): the_row();
 						    	$mis_secondary_icon_image = get_sub_field('mis_secondary_icon_image');
-								$mis_secondary_icon_name = get_sub_field('mis_secondary_icon_name');
 								
 								echo "
 									<div class='col-4'>
@@ -129,7 +127,7 @@ if( have_rows('fc_content_block') ):
 												</div>
 											
 												<div class='col-12 col-md-6 secondary-icon-name'>
-													<span>".$mis_secondary_icon_name."</span>
+													<span>".$mis_secondary_icon_image['caption']."</span>
 												</div>
 											</div>
 										</div>
@@ -216,7 +214,46 @@ if( have_rows('fc_content_block') ):
 					</div> <!-- end row -->
 				</div> <!-- end container -->
 			</section>"; // Close module_content_block
-		endif;		
+		endif;
+		
+		
+          // -------------------------- //
+         // ---- CASE: EVENT BLOCK ----//
+        // -------------------------- //
+        if( get_row_layout() == 'module_content_block' ):
+
+            $mcb_title = get_sub_field('mcb_title'); // Text
+            $mcb_content = get_sub_field('mcb_content'); // WYSIWYG block
+            $mcb_image = get_sub_field('mcb_image'); // Image
+            $mcb_background_image = get_sub_field('mcb_background_image'); // Select 
+			
+            echo 
+            "<!-- Module Content Block -->
+            <section class='generic bg-grey'>
+	            <div class='container module_content_block'>
+					<div class='row'>";
+					
+		            // IMAGE     	
+	            	if ( !empty( $mcb_image) ):
+        				echo
+						"<div class='col-12 col-md-6'>
+							<img src='". $mcb_image['url'] ."'>
+						</div>";
+	            	endif;
+			            
+		            // TITLE AND CONTENT      	
+	            	if ( !empty( $mcb_title ) ):
+        				echo
+						"<div class='col-12 col-md-6'>
+							<h1 class='mcb_title'>". $mcb_title . "</h1>
+							<p class='mcb_content'>". $mcb_content . "</p>
+						</div>";
+	            	endif;
+	            	        	
+				echo "</div> <!-- end row -->
+				</div> <!-- end container -->
+			</section>"; // Close module_content_block
+		endif;			
 	
 		
     // End loop.
