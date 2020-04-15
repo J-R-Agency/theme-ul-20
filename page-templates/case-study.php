@@ -22,6 +22,24 @@ get_header(); ?>
 <?php endif ?>
 <?php include_once (get_template_directory() . '/global-templates/template-parts/global-standfirst.tpl'); ?>
 
+<!-- Services used -->
+<section class="generic bg-white font-navy">
+	<div class='services-used'>
+		<h1>Services used</h1>
+		<div class="service-icons">
+			<?php
+				if( have_rows('services_used') ):
+					while( have_rows('services_used') ): the_row();
+						$service_icon = get_sub_field('service_icon');
+			?>
+				<img src="<?php echo $service_icon['url']?>" alt="<?php echo $service_icon['alt']?>"><span><?php echo $service_icon['caption']?></span>
+			<?php	endwhile;
+				endif;
+			?>
+		</div>
+	</div>
+</section>
+
 <?php get_template_part( 'loop-templates/content', 'flexible' ); ?>
 
 <?php get_footer(); ?>
