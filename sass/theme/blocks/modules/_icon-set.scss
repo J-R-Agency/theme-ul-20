@@ -2,8 +2,13 @@
 	color: $navy;
 }
 
-.primary-icon-wrapper {
+.primary-icon-container {
 	margin: 1rem 0;
+}
+
+.primary-icon-wrapper {
+	display: flex;
+	justify-content: center;
 }
 
 .primary-icon {
@@ -15,6 +20,10 @@
 .primary-icon-name {
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	@include respond-to('lg') {
+		justify-content: left;
+	}		
 }
 
 .secondary-icon-name {
@@ -22,4 +31,13 @@
 	align-items: center;
 	justify-content: center;
 	padding: 0;
+}
+
+.secondary-icon {
+	width: 100px;
+	margin: 0 auto;
+	display: flex;
+	@include respond-to('lg') {
+		width: 100%;
+	}
 }

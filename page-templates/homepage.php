@@ -16,11 +16,13 @@ get_header(); ?>
 <!-- Hero image -->
 <?php if ( has_post_thumbnail() ): ?>
 	<?php $thumb = get_the_post_thumbnail_url(); ?>
-	<div class="row">
-		<div class="col-12">					
-			<div class="hero" style="background-image: url('<?php echo $thumb; ?>');"></div>
+	<section>			
+		<div class="hero" style="background-image: url('<?php echo $thumb; ?>');">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/bird_icon_white.png" id="white-bird">
+			<h2>Business and marketing support that helps you soar like never before</h2>
+			
 		</div>
-	</div>					
+	<section>					
 <?php endif ?>
 
 <?php include_once (get_template_directory() . '/global-templates/template-parts/global-standfirst.tpl'); ?>

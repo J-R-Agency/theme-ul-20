@@ -17,6 +17,15 @@
 	}	
 }
 
+@mixin vertical-center {
+	display: flex;
+	align-items: center;
+}
+
+.vertical-center {
+	@include vertical-center;
+}
+
 .patterned-top-border {
 	@include patterned-top-border;
 }

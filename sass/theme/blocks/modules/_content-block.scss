@@ -2,7 +2,8 @@
 	img {
 		border-radius: 50%;
 		width: 100%;
-		@include respond-to('md'){
+		padding: 3rem;
+		@include respond-to('lg'){
 			width: 60%;
 		}
 	}

@@ -93,9 +93,9 @@ if( have_rows('fc_content_block') ):
 								
 								echo "
 									<div class='col-6'>
-										<div class='primary-icon-wrapper'>
+										<div class='primary-icon-container'>
 											<div class='row'>
-												<div class='col-12 col-md-6'>
+												<div class='col-12 col-md-6 primary-icon-wrapper'>
 													<img src='".$mis_primary_icon_image."' alt='".$mis_primary_icon_image['alt']. "' class='primary-icon'>
 												</div>
 											
@@ -144,7 +144,80 @@ if( have_rows('fc_content_block') ):
 				echo "</div> <!-- end row -->
 				</div> <!-- end container -->
 			</section>"; // Close module_content_block
+		endif;
+		
+
+          // -------------------------- //
+         // --- CASE: CONTACT BLOCK ---//
+        // -------------------------- //
+        if( get_row_layout() == 'module_contact_block' ):
+            $footer_phone_number = get_field('footer_phone_number', 'option');
+            $footer_email = get_field('footer_email', 'option');
+            $footer_address = get_field('footer_address', 'option');
+
+            echo 
+            "<!-- Contact Block -->
+            <section class='generic bg-grey'>
+	            <div class='container module_contact_block'>
+					<div class='row'>
+					
+						<div class='col-12 col-md-6'>
+							<h1>Get in touch</h1>
+						</div>
+						
+						<div class='col-12 col-md-6'>
+							<div class='container'>
+								<div class='row'>
+									<div class='col-4'>
+										<div class='contact-icon'>
+											<a href='tel:".$footer_phone_number."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-call.png'></a>
+											<p><strong>Call</strong></p>
+										</div>
+									</div>
+									<div class='col-4'>
+										<div class='contact-icon'>
+											<a href='mailto:".$footer_email."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-email.png'></a>
+											<p><strong>Email</strong></p>
+										</div>
+									</div>	
+										
+										";
+			           if( have_rows('footer_social_media', 'option') ):
+			            	while( have_rows('footer_social_media', 'option') ): the_row();
+							    $footer_social_media_type = get_sub_field('footer_social_media_type', 'option');
+								$footer_social_media_link = get_sub_field('footer_social_media_link', 'option');									
+									if ($footer_social_media_type == "linkedin"):
+									echo "<div class='col-4'>
+											<div class='contact-icon'>
+												<a href='".$footer_social_media_link."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-social.png'></a>
+												<p><strong>Social</strong></p>
+											</div>
+										</div>";
+									endif;
+							endwhile;
+						endif;
+						
+				echo		"</div>
+								<div class='row'>
+									<div class='col-12 col-md-7'>
+										<div class='contact-map'>
+											<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2378.6215808602083!2d-2.9964308841594005!3d53.40370887999119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b212c58fb7037%3A0xe084e7ed59fdba7!2sAvenue%20HQ%20Mann%20Island!5e0!3m2!1sen!2suk!4v1586946360842!5m2!1sen!2suk' allowfullscreen='' aria-hidden='false' tabindex='0'></iframe>
+										</div>
+									</div>
+									<div class='col-12 col-md-5 vertical-center'>
+										<div class='contact-address'>
+										".$footer_address."
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div> <!-- end row -->
+				</div> <!-- end container -->
+			</section>"; // Close module_content_block
 		endif;		
+	
 		
     // End loop.
     endwhile;

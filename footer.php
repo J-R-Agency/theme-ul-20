@@ -73,7 +73,7 @@ $theme_path = get_template_directory_uri();
 							<?php echo esc_attr($footer_email); ?>
 						</a>
 						<p id="footer-address">
-							<?php echo esc_attr($footer_address); ?>
+							<?php echo $footer_address; ?>
 						</p>
 					</div>
 				</div><!-- row end -->
