@@ -1,6 +1,9 @@
 .module_event_block {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	@include respond-to('md'){
+		flex-direction: row;
+	}
 }
 
 .meb-image {
