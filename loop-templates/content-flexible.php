@@ -220,41 +220,55 @@ if( have_rows('fc_content_block') ):
           // -------------------------- //
          // ---- CASE: EVENT BLOCK ----//
         // -------------------------- //
-        if( get_row_layout() == 'module_content_block' ):
-
-            $mcb_title = get_sub_field('mcb_title'); // Text
-            $mcb_content = get_sub_field('mcb_content'); // WYSIWYG block
-            $mcb_image = get_sub_field('mcb_image'); // Image
-            $mcb_background_image = get_sub_field('mcb_background_image'); // Select 
+        if( get_row_layout() == 'module_event_block' ):
+			
+			$meb_event_image = get_sub_field('meb_event_image'); // Image
+            $meb_event_name = get_sub_field('meb_event_name'); // Text
+            $meb_event_description = get_sub_field('meb_event_description'); // Text
+			$meb_link = get_sub_field('meb_link'); // Link
 			
             echo 
-            "<!-- Module Content Block -->
-            <section class='generic bg-grey'>
-	            <div class='container module_content_block'>
-					<div class='row'>";
+            "<!-- Module Event Block -->
+            <section class='module_event_block'>";
 					
-		            // IMAGE     	
-	            	if ( !empty( $mcb_image) ):
-        				echo
-						"<div class='col-12 col-md-6'>
-							<img src='". $mcb_image['url'] ."'>
-						</div>";
-	            	endif;
-			            
-		            // TITLE AND CONTENT      	
-	            	if ( !empty( $mcb_title ) ):
-        				echo
-						"<div class='col-12 col-md-6'>
-							<h1 class='mcb_title'>". $mcb_title . "</h1>
-							<p class='mcb_content'>". $mcb_content . "</p>
-						</div>";
-	            	endif;
-	            	        	
-				echo "</div> <!-- end row -->
-				</div> <!-- end container -->
-			</section>"; // Close module_content_block
+				echo
+				"
+				<div class='meb-image'>
+					<img src='". $meb_event_image['url'] ."'>
+		        </div>
+		        <div class='meb-info'>
+					<h1 class='meb_event_name'>". $meb_event_name . "</h1>
+					<p class='meb_description'>". $meb_event_description . "</p>
+					<a href='".$meb_link['url']."'><div class='navy-button'>".$meb_link['title']."</div></a>
+				</div>	
+				";
+                    	
+				echo "
+			</section>"; // Close module_event_block
 		endif;			
-	
+
+          // -------------------------- //
+         // -- CASE: OUR WORK BLOCK ---//
+        // -------------------------- //
+        if( get_row_layout() == 'module_our_work_block' ):
+			
+            $mowb_title = get_sub_field('mowb_title'); // Text
+            $mowb_subtitle = get_sub_field('mowb_subtitle'); // Text
+			
+            echo 
+            "<!-- Module Our Work Block -->
+            <section class='generic bg-navy'>
+            	<div class='container'>
+            		<div class='row'>
+						<div class='col-12 col-md-4'>
+							<h1 class='font-white'>".$mowb_title."</h1>
+							<p class='font-yellow'>".$mowb_subtitle."</p>
+						</div>";
+                    	
+				echo "</div>
+				</div>
+			</section>"; // Close module_event_block
+		endif;		
 		
     // End loop.
     endwhile;

@@ -6,6 +6,7 @@
 @import "global/mixins/typography";
 @import "global/typography"; 
 @import "global/globals"; 
+@import "global/buttons"; 
 
 // Header
 @import "blocks/header/navbar";
@@ -18,4 +19,5 @@
 @import "blocks/modules/global-standfirst";
 @import "blocks/modules/content-block";
 @import "blocks/modules/contact-block";
+@import "blocks/modules/event-block";
 @import "blocks/modules/icon-set";
