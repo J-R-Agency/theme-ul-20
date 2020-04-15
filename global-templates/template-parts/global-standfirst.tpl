@@ -27,10 +27,13 @@ defined( 'ABSPATH' ) || exit;
 		<div class="container-fluid">
 			<div class="row standfirst-left">
 				<div class="col-12 col-md-5">
-					<?php if ($gs_headline == "About"): ?>
+					<?php if (is_page_template( 'page-templates/about.php' )): ?>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/bird_icon_white.png" class="gs-headline-image">
 					<?php endif; ?>
 					<h1 class="<?php echo $gs_headline_color; ?>"><?php echo esc_attr($gs_headline); ?></h1>
+					<?php if (is_page_template( 'page-templates/case-study.php' )): ?>
+						<hr class="cs-hr">
+					<?php endif; ?>
 					<h2 class="<?php echo $gs_subhead_color; ?>"><?php echo esc_attr($gs_subhead); ?></h2>
 				</div>
 				<div class="col-12 col-md-7">
