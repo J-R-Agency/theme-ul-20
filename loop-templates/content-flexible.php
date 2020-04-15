@@ -26,34 +26,59 @@ if( have_rows('fc_content_block') ):
             $mcb_title = get_sub_field('mcb_title'); // Text
             $mcb_content = get_sub_field('mcb_content'); // WYSIWYG block
             $mcb_image = get_sub_field('mcb_image'); // Image
-            $mcb_background_image = get_sub_field('mcb_background_image'); // Select 
+            $mcb_style = get_sub_field('mcb_style'); // Select 
 			
-            echo 
-            "<!-- Module Content Block -->
-            <section class='generic bg-grey overlay-mtf'>
-	            <div class='container module_content_block'>
+			if ($mcb_style == "primary") {
+				echo 
+	            "<!-- Module Content Block -->
+	            <section class='patterned-border-faded'></section>
+	            	<section class='generic bg-white font-navy'>";
+			} else {
+				echo 
+	            "<!-- Module Content Block -->
+	            <section class='generic bg-grey overlay-mtf'>";
+			}
+            
+	        echo "<div class='container module_content_block'>
 					<div class='row'>";
 					
-		            // IMAGE     	
-	            	if ( !empty( $mcb_image) ):
-        				echo
-						"<div class='col-12 col-md-5'>
-							<img src='". $mcb_image['url'] ."'>
-						</div>";
-	            	endif;
-			            
-		            // TITLE AND CONTENT      	
-	            	if ( !empty( $mcb_title ) ):
-        				echo
-						"<div class='col-12 col-md-7'>
-							<h1 class='mcb_title'>". $mcb_title . "</h1>
-							<p class='mcb_content'>". $mcb_content . "</p>
-						</div>";
-	            	endif;
+			if ($mcb_style == "tertiary") {
+				// IMAGE     	
+            	if ( !empty( $mcb_image) ):
+    				echo
+					"<div class='col-12 col-md-5'>
+						<img src='". $mcb_image['url'] ."'>
+					</div>";
+            	endif;
+            	
+            	// TITLE AND CONTENT      	
+            	if ( !empty( $mcb_title ) ):
+    				echo
+					"<div class='col-12 col-md-7'>
+						<h1 class='mcb_title'>". $mcb_title . "</h1>
+						<p class='mcb_content'>". $mcb_content . "</p>
+					</div>";
+            	endif;
+			} elseif ($mcb_style == "primary" or $mcb_style == "secondary") {
+				echo "
+					<div class='col-12 col-md-5'>
+						<h1 class='mcb_title'>". $mcb_title . "</h1>
+					</div>
+					<div class='col-12 col-md-7'>
+						<p class='mcb_content'>". $mcb_content . "</p>
+					</div>
+				";
+			}
 	            	        	
 				echo "</div> <!-- end row -->
 				</div> <!-- end container -->
 			</section>"; // Close module_content_block
+			
+			if ($mcb_style == "primary") {
+				echo 
+	            "<section class='patterned-border-faded'></section>";
+			}
+			
 		endif;
 		
 		

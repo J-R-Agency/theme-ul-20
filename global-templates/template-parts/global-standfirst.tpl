@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 		</div>
 	</section>
-	<section class="<?php if ( $gs_horizontal_line == true ) { echo 'patterned-bottom-border'; }?>"></section>
+	<section class="<?php if ( $gs_horizontal_line == true ) { echo 'patterned-border'; }?>"></section>
 
     <?php endwhile; ?>
 <?php endif; ?>

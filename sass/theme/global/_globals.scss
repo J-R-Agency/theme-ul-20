@@ -1,10 +1,11 @@
-@mixin patterned-bottom-border {
+@mixin patterned-border {
 	border-style: solid;
 	border-width: 0 0 30px 0;
 	border-image: url("../assets/images/horizontal-line-pattern.png") 100 0 repeat;
 }
 
-@mixin patterned-top-border {
+@mixin patterned-border-faded {
+	filter:opacity(30%);
 	border-style: solid;
 	border-width: 30px 0 0 0;
 	border-image: url("../assets/images/horizontal-line-pattern.png") 100 0 repeat;
@@ -26,12 +27,12 @@
 	@include vertical-center;
 }
 
-.patterned-top-border {
-	@include patterned-top-border;
+.patterned-border {
+	@include patterned-border;
 }
 
-.patterned-bottom-border {
-	@include patterned-bottom-border;
+.patterned-border-faded {
+	@include patterned-border-faded;
 }
 
 .generic {
