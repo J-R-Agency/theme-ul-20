@@ -30,14 +30,14 @@ if( have_rows('fc_content_block') ):
 			
             echo 
             "<!-- Module Content Block -->
-            <section class='generic bg-grey'>
+            <section class='generic bg-grey overlay-mtf'>
 	            <div class='container module_content_block'>
 					<div class='row'>";
 					
 		            // IMAGE     	
 	            	if ( !empty( $mcb_image) ):
         				echo
-						"<div class='col-12 col-md-6'>
+						"<div class='col-12 col-md-5'>
 							<img src='". $mcb_image['url'] ."'>
 						</div>";
 	            	endif;
@@ -45,7 +45,7 @@ if( have_rows('fc_content_block') ):
 		            // TITLE AND CONTENT      	
 	            	if ( !empty( $mcb_title ) ):
         				echo
-						"<div class='col-12 col-md-6'>
+						"<div class='col-12 col-md-7'>
 							<h1 class='mcb_title'>". $mcb_title . "</h1>
 							<p class='mcb_content'>". $mcb_content . "</p>
 						</div>";

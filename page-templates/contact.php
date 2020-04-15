@@ -11,11 +11,16 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-get_header();
+get_header(); ?>
 
-while ( have_posts() ) :
-	the_post();
-	get_template_part( 'loop-templates/content', 'empty' );
-endwhile;
+<!-- Hero image -->
+<?php if ( has_post_thumbnail() ): ?>
+	<?php $thumb = get_the_post_thumbnail_url(); ?>
+	<section>			
+		<div class="hero" style="background-image: url('<?php echo $thumb; ?>');"></div>
+	<section>					
+<?php endif ?>
 
-get_footer();
+<?php get_template_part( 'loop-templates/content', 'flexible' ); ?>
+
+<?php get_footer(); ?>
