@@ -285,11 +285,11 @@ if( have_rows('fc_content_block') ):
             <section class='generic bg-navy'>
             	<div class='container'>
             		<div class='row'>
-						<div class='col-12 col-md-4'>
+						<div class='col-12 col-md-5'>
 							<h1 class='font-white'>".$mowb_title."</h1>
 							<p class='font-yellow'>".$mowb_subtitle."</p>
 						</div>
-						<div class='col-12 col-md-8'>
+						<div class='col-12 col-md-7'>
 						<div class='thumb-container'>
 						";
 							$pageSlug = get_page_by_path( 'case-studies' );
