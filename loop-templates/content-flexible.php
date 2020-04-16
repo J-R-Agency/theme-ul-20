@@ -288,9 +288,48 @@ if( have_rows('fc_content_block') ):
 						<div class='col-12 col-md-4'>
 							<h1 class='font-white'>".$mowb_title."</h1>
 							<p class='font-yellow'>".$mowb_subtitle."</p>
-						</div>";
-                    	
-				echo "</div>
+						</div>
+						<div class='col-12 col-md-8'>
+						<div class='thumb-container'>
+						";
+							$pageSlug = get_page_by_path( 'case-studies' );
+							
+							//wp_list_pages( array(
+							//    'child_of' => $pageSlug->ID
+							//) );
+							
+							$args = array(
+							    'post_type'      => 'page', //write slug of post type
+							    'posts_per_page' => 4,
+							    'post_parent'    => $pageSlug->ID, //place here id of your parent page
+							    'order'          => 'ASC',
+							    'orderby'        => 'menu_order'
+							 );
+							 
+							$children = new WP_Query( $args );
+							 
+							if ( $children->have_posts() ) :
+							 
+							     while ( $children->have_posts() ) : $children->the_post();
+								 	$cs_thumbnail = get_field('cs_thumbnail');
+							 
+							        echo "
+						        		<div class='thumb-wrapper'>
+								            <a href='",the_permalink(),"'>
+								            	<img src='".$cs_thumbnail['url']."' alt='".$cs_thumbnail['alt']."'>
+								            </a>
+									    </div>  
+									";
+							 
+							    endwhile; 
+							endif; 
+							wp_reset_query(); 											
+						
+                      	
+							echo "
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>"; // Close module_event_block
 		endif;		

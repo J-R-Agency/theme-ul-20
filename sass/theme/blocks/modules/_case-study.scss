@@ -35,3 +35,16 @@
 	}
 	
 }
+
+// OUR WORK MODULE
+.thumb-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.thumb-wrapper {
+	width: 100%;
+	margin: 0.5rem;
+	flex-basis: 40%;
+}
