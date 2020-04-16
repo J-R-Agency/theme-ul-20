@@ -1,0 +1,27 @@
+.carousel {
+	background-color: black;
+}
+
+.carousel-item img {
+	height: 500px;
+	object-fit: contain;
+}
+
+.carousel-control-prev-icon {
+	background-image: url('../assets/icons/arrow-prev.png');
+	width: 50px;
+	height: 50px;
+}
+
+.carousel-control-next-icon {
+	background-image: url('../assets/icons/arrow-next.png');
+	width: 50px;
+	height: 50px;
+}
+
+.carousel-control-next, .carousel-control-prev {
+	opacity: 1;
+	&:hover {
+		opacity: .5;
+	}
+}

@@ -49,3 +49,9 @@ function register_my_menus() {
    );
  }
  add_action( 'init', 'register_my_menus' );
+
+//Enqueue javascript
+function my_theme_scripts() {
+    wp_enqueue_script( 'slideshow', get_template_directory_uri() . '/js/slideshow.js', array( 'jquery' ), '1.0.0', true );
+}
+add_action( 'wp_enqueue_scripts', 'my_theme_scripts' );

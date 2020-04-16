@@ -40,6 +40,49 @@ get_header(); ?>
 	</div>
 </section>
 
+<!-- PHOTO SLIDESHOW BOOTSTRAP CAROUSEL -->
+<!-- Ref: wpbeaches . com/create-a-bootstrap-4-carousel-slider-with-acf-image-repeater/ -->
+<section class="generic bg-white">
+	<?php if( have_rows('image_gallery') ):
+		$i = 1; // Set the increment variable
+		
+		echo '<div id="carouselExampleSlidesNav2" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">';
+	 	
+	 	// loop through the rows of data for the tab header
+	    while ( have_rows('image_gallery') ) : the_row();
+			
+			$case_study_image = get_sub_field('case_study_image');
+	
+		?>
+		
+		 <div class="carousel-item <?php if($i == 1) echo 'active';?>">
+	      <img class="d-block w-100" src="<?php echo $case_study_image['url']; ?>" alt="<?php echo $case_study_image['alt']; ?>">
+	    </div>
+		
+		              
+		<?php   $i++; // Increment the increment variable
+	
+		endwhile; //End the loop 
+		
+		echo '</div>
+				 <a class="carousel-control-prev" href="#carouselExampleSlidesNav2" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleSlidesNav2" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+			</div>';
+	
+	else :
+	
+	    // no rows found
+	
+	endif; ?>
+</section>
+
 <?php get_template_part( 'loop-templates/content', 'flexible' ); ?>
 
 <?php get_footer(); ?>
