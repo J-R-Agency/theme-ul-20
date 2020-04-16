@@ -316,7 +316,7 @@ if( have_rows('fc_content_block') ):
 							        echo "
 						        		<div class='thumb-wrapper'>
 								            <a href='",the_permalink(),"'>
-								            	<img src='".$cs_thumbnail['url']."' alt='".$cs_thumbnail['alt']."'>
+								            	<img class='thumb-img' src='".$cs_thumbnail['url']."' alt='".$cs_thumbnail['alt']."'>
 								            </a>
 									    </div>  
 									";
