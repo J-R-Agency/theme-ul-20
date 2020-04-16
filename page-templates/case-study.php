@@ -42,11 +42,11 @@ get_header(); ?>
 
 <!-- PHOTO SLIDESHOW BOOTSTRAP CAROUSEL -->
 <!-- Ref: wpbeaches . com/create-a-bootstrap-4-carousel-slider-with-acf-image-repeater/ -->
-<section class="generic bg-white">
+
 	<?php if( have_rows('image_gallery') ):
 		$i = 1; // Set the increment variable
 		
-		echo '<div id="carouselExampleSlidesNav2" class="carousel slide" data-ride="carousel">
+		echo '<section class="generic bg-white"><div id="carouselExampleSlidesNav2" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">';
 	 	
 	 	// loop through the rows of data for the tab header
@@ -74,14 +74,14 @@ get_header(); ?>
 				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 				    <span class="sr-only">Next</span>
 				  </a>
-			</div>';
+			</div></section>';
 	
 	else :
 	
 	    // no rows found
 	
 	endif; ?>
-</section>
+
 
 <?php get_template_part( 'loop-templates/content', 'flexible' ); ?>
 
