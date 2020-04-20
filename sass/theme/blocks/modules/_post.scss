@@ -118,6 +118,13 @@
 
 .entry-content {
 	margin-bottom: 2rem;
+	
+	p {
+		strong {
+			@include _work-sans-semibold;
+		}
+	}
+	
 	blockquote {
 		p {
 			margin: 2rem 0;
