@@ -12,7 +12,7 @@
 	align-content: center;
 	align-items: center;
 	
-	@include respond-to ('lg') {
+	@include respond-to ('md') {
 		height: 100vh;
 	}
 	

@@ -1,0 +1,135 @@
+
+@mixin cat-arrow {
+	content: '';
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	margin-right: 0.5rem;
+}
+
+.post-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.post-sidebar {
+	background-color: $grey;
+	padding: 5rem;
+	h2 {
+		@include _work-sans-semibold;
+	}
+	.post-portrait {
+		border-radius: 50%;
+		width: 200px;
+		border: 3px solid white;
+		margin: 1rem 0;
+	}
+	.social-media-icons {
+		border-bottom: 2px solid $navy;
+		padding-bottom: 2rem;
+	}
+	.categories-container {
+		margin: 2rem 0;
+	}
+	
+	.categories-list {
+		list-style: none;
+		padding: 0;
+		
+		li {
+			margin: 1rem 0;
+			display: flex;
+			align-items: center;
+			
+			&.small-business-marketing {
+				a {
+					color: $purple;
+				}
+				&:before {
+					@include cat-arrow;
+					background-image: url(../assets/icons/cat-arrow-purple.svg);
+				}
+			}
+			&.business-planning {
+				a {
+					color: $coral;
+				}
+				&:before {
+					@include cat-arrow;
+					background-image: url(../assets/icons/cat-arrow-coral.svg);
+				}
+			}
+			&.events-planning {
+				a {
+					color: $teal;
+				}
+				&:before {
+					@include cat-arrow;
+					background-image: url(../assets/icons/cat-arrow-teal.svg);
+				}
+			}
+			&.social-media {
+				a {
+					color: $yellow;
+				}
+				&:before {
+					@include cat-arrow;
+					background-image: url(../assets/icons/cat-arrow-yellow.svg);
+				}
+			}
+			
+		}
+	}
+}
+
+.post-content {
+	padding: 5rem;
+	a {
+		color: $purple;
+	}
+	.cat-links {
+		display: none;
+	}
+}
+
+.post-categories {
+	list-style-type: none;
+	padding: 0;
+	margin: 2rem 0;
+	li {
+		display: flex;
+		align-items: center;
+		&:before {
+			@include cat-arrow;
+			background-image: url(../assets/icons/cat-arrow-purple.svg);
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+.entry-meta {
+	margin-bottom: 3rem;
+	.meta-separator {
+		color: $purple;
+		font-size: 1.5rem;
+	}
+}
+
+.entry-content {
+	margin-bottom: 2rem;
+}
+
+.post-navigation {
+	border-top: 1px solid $navy;
+	border-bottom: 1px solid $navy;
+	.nav-links {
+		span {
+			margin: 1rem 0;
+		}
+		a {
+			color: $navy;
+			font-weight: bold;
+		}
+	}
+}

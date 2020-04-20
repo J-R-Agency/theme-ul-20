@@ -9,6 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
+
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 	<header class="entry-header">
@@ -16,14 +17,14 @@ defined( 'ABSPATH' ) || exit;
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
-
-			<?php understrap_posted_on(); ?>
+			
+			<?php echo the_category(); ?>
+			
+			By <?php echo (get_the_author_meta('display_name')); ?> <span class='meta-separator'>|</span> <?php echo get_the_date('d/m/Y'); ?>
 
 		</div><!-- .entry-meta -->
 
 	</header><!-- .entry-header -->
-
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
 	<div class="entry-content">
 

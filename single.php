@@ -11,42 +11,33 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
+				
+<section class="post-container">
+	<div class="post-sidebar font-navy">
+		<h2>Follow our founder</h2>
+		<img class="post-portrait" src="http://192.168.33.10/underwing/wp-content/uploads/2020/03/francesca-portrait.png">
+		<?php include (get_template_directory() . '/global-templates/template-parts/social-media.tpl'); ?>
+		<div class="categories-container">
+			<h2>Categories</h2>
+			<ul class='categories-list'>
+				<?php
+					$categories = get_categories();
+					foreach($categories as $category) {
+					   echo '<li class="'.$category->slug.'"><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
+					}
+				?>	 
+			</ul>
+		</div>
+	</div>
+	<div class="post-content font-navy">
+		<?php while ( have_posts() ) : the_post(); ?>
 
-<div class="wrapper" id="single-wrapper">
+			<?php get_template_part( 'loop-templates/content', 'single' ); ?>
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+			<?php understrap_post_nav(); ?>
 
-		<div class="row">
-
-			<!-- Do the left sidebar check -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
-
-			<main class="site-main" id="main">
-
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php get_template_part( 'loop-templates/content', 'single' ); ?>
-
-					<?php understrap_post_nav(); ?>
-
-					<?php
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
-					?>
-
-				<?php endwhile; // end of the loop. ?>
-
-			</main><!-- #main -->
-
-			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
-
-		</div><!-- .row -->
-
-	</div><!-- #content -->
-
-</div><!-- #single-wrapper -->
+		<?php endwhile; // end of the loop. ?>
+	</div>
+</div>
 
 <?php get_footer();
