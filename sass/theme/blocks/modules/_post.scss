@@ -9,12 +9,22 @@
 
 .post-container {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column-reverse;
+	@include respond-to('md') {
+		flex-direction: row;
+	}
 }
 
 .post-sidebar {
 	background-color: $grey;
-	padding: 5rem;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	@include respond-to('md') {
+		padding: 5rem;
+		align-items: start;
+	}
 	h2 {
 		@include _work-sans-semibold;
 	}
@@ -83,7 +93,10 @@
 }
 
 .post-content {
-	padding: 5rem;
+	padding: 2rem;
+	@include respond-to('md') {
+		padding: 5rem;
+	}
 	a {
 		color: $purple;
 	}
@@ -131,7 +144,6 @@
 			margin: 2rem 0;
 			@include _work-sans-semibold;
 		}
-		
 	}
 }
 
@@ -139,12 +151,22 @@
 	border-top: 1px solid $navy;
 	border-bottom: 1px solid $navy;
 	.nav-links {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		span {
 			margin: 1rem 0;
 		}
 		a {
 			color: $navy;
 			font-weight: bold;
+			p {
+				margin: 0;
+				font-size: 0.9rem;
+				@include respond-to('md') {
+					font-size: inherit;
+				}
+			}
 		}
 	}
 }
