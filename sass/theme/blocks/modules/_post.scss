@@ -118,6 +118,13 @@
 
 .entry-content {
 	margin-bottom: 2rem;
+	blockquote {
+		p {
+			margin: 2rem 0;
+			@include _work-sans-semibold;
+		}
+		
+	}
 }
 
 .post-navigation {
