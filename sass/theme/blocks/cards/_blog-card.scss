@@ -75,6 +75,7 @@
 	.meta-separator {
 		display: none;
 		@include respond-to ('md') {
+			display: inline-block;
 			color: $purple;
 			font-size: 1.5rem;
 			padding: 0 0.5rem;
