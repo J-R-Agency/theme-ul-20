@@ -35,54 +35,54 @@
 	.categories-container {
 		margin: 2rem 0;
 	}
+}
+
+.categories-list {
+	list-style: none;
+	padding: 0;
 	
-	.categories-list {
-		list-style: none;
-		padding: 0;
+	li {
+		margin: 1rem 0;
+		display: flex;
+		align-items: center;
 		
-		li {
-			margin: 1rem 0;
-			display: flex;
-			align-items: center;
-			
-			&.small-business-marketing {
-				a {
-					color: $purple;
-				}
-				&:before {
-					@include cat-arrow;
-					background-image: url(../assets/icons/cat-arrow-purple.svg);
-				}
+		&.small-business-marketing {
+			a {
+				color: $purple;
 			}
-			&.business-planning {
-				a {
-					color: $coral;
-				}
-				&:before {
-					@include cat-arrow;
-					background-image: url(../assets/icons/cat-arrow-coral.svg);
-				}
+			&:before {
+				@include cat-arrow;
+				background-image: url(../assets/icons/cat-arrow-purple.svg);
 			}
-			&.events-planning {
-				a {
-					color: $teal;
-				}
-				&:before {
-					@include cat-arrow;
-					background-image: url(../assets/icons/cat-arrow-teal.svg);
-				}
-			}
-			&.social-media {
-				a {
-					color: $yellow;
-				}
-				&:before {
-					@include cat-arrow;
-					background-image: url(../assets/icons/cat-arrow-yellow.svg);
-				}
-			}
-			
 		}
+		&.business-planning {
+			a {
+				color: $coral;
+			}
+			&:before {
+				@include cat-arrow;
+				background-image: url(../assets/icons/cat-arrow-coral.svg);
+			}
+		}
+		&.events-planning {
+			a {
+				color: $teal;
+			}
+			&:before {
+				@include cat-arrow;
+				background-image: url(../assets/icons/cat-arrow-teal.svg);
+			}
+		}
+		&.social-media {
+			a {
+				color: $yellow;
+			}
+			&:before {
+				@include cat-arrow;
+				background-image: url(../assets/icons/cat-arrow-yellow.svg);
+			}
+		}
+		
 	}
 }
 
