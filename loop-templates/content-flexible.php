@@ -332,7 +332,65 @@ if( have_rows('fc_content_block') ):
 					</div>
 				</div>
 			</section>"; // Close module_event_block
-		endif;		
+		endif;	
+		
+          // -------------------------- //
+         // ---- CASE: FOUNDER BLOCK ----//
+        // -------------------------- //
+        if( get_row_layout() == 'module_founder_block' ):
+			
+			$mfb_style = get_sub_field('mfb_style'); // Link
+			$mfb_headline = get_sub_field('mfb_headline'); // Image
+			$mfb_link = get_sub_field('mfb_link'); // Link
+			$founder_image = get_field('founder_image','option');
+			$founder_name = get_field('founder_name','option');
+			$founder_bio = get_field('founder_bio','option');
+			
+			if ($mfb_style == 'primary') {
+				echo "
+				<section class='generic bg-grey overlay-mtf'>
+					<div class='container module_founder_block'>
+						<div class='row'>
+							<div class='col-12 col-md-5'>
+								<img src='". $founder_image['url'] ."'>
+							</div>
+							<div class='col-12 col-md-7'>
+								<h1 class='mfb_title-".$mfb_style."'>". $mfb_headline . "</h1>
+								<p>". $founder_bio . "</p>
+							</div>
+						</div>
+					</div>
+				
+				</section>
+				
+				";
+			}
+			
+			elseif ($mfb_style == 'secondary') {
+				echo 
+	            "<!-- Module Event Block -->
+	            <section class='generic bg-grey overlay-mfb font-navy'>
+					<div class='container module_founder_block'>
+						<div class='row'>
+							<div class='col-12 col-md-4'>
+								<div class='founder-image'>
+									<img class='founder-portrait' src='".$founder_image['url']."'>
+								</div>
+							</div>
+							<div class='col-12 col-md-8'>
+								<h1 class='mfb_title-".$mfb_style."'>".$mfb_headline."</h1>
+								<p class='name'>".$founder_name."</p>
+								<p class='font-purple'><strong>Founder – Underwing</strong></p>
+								<a href='".$mfb_link['url']."'><div class='navy-button'>".$mfb_link['title']."</div></a>
+							</div>
+						</div>
+					</div>
+				</section>"; // Close module_event_block
+			}
+            
+		endif;			
+		
+			
 		
     // End loop.
     endwhile;

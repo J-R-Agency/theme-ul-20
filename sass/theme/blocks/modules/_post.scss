@@ -28,12 +28,6 @@
 	h2 {
 		@include _work-sans-semibold;
 	}
-	.post-portrait {
-		border-radius: 50%;
-		width: 200px;
-		border: 3px solid white;
-		margin: 1rem 0;
-	}
 	.social-media-icons {
 		border-bottom: 2px solid $navy;
 		padding-bottom: 2rem;
@@ -90,6 +84,13 @@
 			
 		}
 	}
+}
+
+.post-portrait {
+	border-radius: 50%;
+	width: 200px;
+	border: 3px solid white;
+	margin: 1rem 0;
 }
 
 .post-content {

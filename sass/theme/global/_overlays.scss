@@ -1,8 +1,15 @@
 .overlay-mtf {
-	background-image: url('../assets/images/overlay-mtf.png');
+	background-image: url('../assets/overlays/overlay-mtf.png');
 	background-repeat: no-repeat;
 	background-position: top left;
 	@include respond-to ('md') {
 		background-position: bottom left;
 	}
+}
+
+.overlay-mfb {
+	background-image: url('../assets/overlays/overlay-mfb.png');
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: contain;
 }
