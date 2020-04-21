@@ -11,26 +11,9 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
-
-<?php $founder_image = get_field('founder_image','option'); ?>
 				
 <section class="post-container">
-	<div class="post-sidebar font-navy">
-		<h2>Follow our founder</h2>
-		<img class="post-portrait" src="<?php echo $founder_image['url']; ?>">
-		<?php include (get_template_directory() . '/global-templates/template-parts/social-media.tpl'); ?>
-		<div class="categories-container">
-			<h2>Categories</h2>
-			<ul class='categories-list'>
-				<?php
-					$categories = get_categories();
-					foreach($categories as $category) {
-					   echo '<li class="'.$category->slug.'"><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
-					}
-				?>	 
-			</ul>
-		</div>
-	</div>
+	<?php include (get_template_directory() . '/global-templates/template-parts/post-sidebar.tpl'); ?>
 	<div class="post-content font-navy">
 		<?php while ( have_posts() ) : the_post(); ?>
 
