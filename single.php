@@ -11,11 +11,13 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
+
+<?php $founder_image = get_field('founder_image','option'); ?>
 				
 <section class="post-container">
 	<div class="post-sidebar font-navy">
 		<h2>Follow our founder</h2>
-		<img class="post-portrait" src="http://192.168.33.10/underwing/wp-content/uploads/2020/03/francesca-portrait.png">
+		<img class="post-portrait" src="<?php echo $founder_image['url']; ?>">
 		<?php include (get_template_directory() . '/global-templates/template-parts/social-media.tpl'); ?>
 		<div class="categories-container">
 			<h2>Categories</h2>
