@@ -56,3 +56,13 @@ function my_theme_scripts() {
     wp_enqueue_script( 'slideshow', get_template_directory_uri() . '/js/decorate-quote.js', array( 'jquery' ), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_scripts' );
+
+//Customise pagination
+function custom_pagination() {
+
+  $pagination_args = array(
+    'prev_text'       => __('<'),
+    'next_text'       => __('>'),
+  );
+ }
+ add_action( 'understrap_pagination', 'custom_pagination' );

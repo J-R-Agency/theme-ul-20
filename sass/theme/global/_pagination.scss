@@ -1,0 +1,29 @@
+.pagination {
+	align-items: center;
+}
+
+.page-item {
+	a, {
+		color: $navy;
+		@include _work-sans-semibold;
+	}
+}
+
+.page-link {
+	border: 0;
+	&:hover {
+		background-color: none;
+		border-color: none;
+		color: $purple;
+	}
+}
+
+.page-item.active .page-link {
+	color: $navy;
+	font-size: 1rem;
+	text-decoration: underline;
+	text-decoration-color: $purple;
+	text-decoration-thickness: 2px;
+	text-underline-position: under;
+	@include _work-sans-semibold;
+}
