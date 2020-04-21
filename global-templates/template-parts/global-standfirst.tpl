@@ -37,8 +37,12 @@ defined( 'ABSPATH' ) || exit;
 					<h2 class="<?php echo $gs_subhead_color; ?>"><?php echo esc_attr($gs_subhead); ?></h2>
 				</div>
 				<div class="col-12 col-md-7">
-					<p class="<?php echo $gs_text_color; ?>"><strong><?php echo esc_attr($gs_intro); ?></strong></p>
-					<p class="<?php echo $gs_text_color; ?>"><?php echo esc_attr($gs_secondary_intro); ?></p>
+					<?php if ($gs_intro): ?>
+						<p class="<?php echo $gs_text_color; ?>"><strong><?php echo esc_attr($gs_intro); ?></strong></p>
+					<?php endif; ?>
+					<?php if ($gs_secondary_intro): ?>
+						<p class="<?php echo $gs_text_color; ?>"><?php echo esc_attr($gs_secondary_intro); ?></p>
+					<?php endif; ?>	
 				</div>
 			</div>
 		</div>
