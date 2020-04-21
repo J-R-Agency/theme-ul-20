@@ -1,10 +1,11 @@
 .module_founder_block {
 	img {
 		border-radius: 50%;
-		width: 100%;
-		padding: 0 3rem 3rem 3rem;
-		@include respond-to('lg'){
-			width: 80%;
+		width: 300px;
+		margin: 1rem auto;
+		@include respond-to('md'){
+			margin: 0 3rem 3rem 3rem;
+			padding: 0rem;
 		}
 	}
 	.mfb_title-primary {

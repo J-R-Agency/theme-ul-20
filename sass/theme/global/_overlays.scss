@@ -8,8 +8,11 @@
 }
 
 .overlay-mfb {
-	background-image: url('../assets/overlays/overlay-mfb.png');
-	background-repeat: no-repeat;
-	background-position: right;
-	background-size: contain;
+	background-image: none;
+	@include respond-to ('md') {
+		background-image: url('../assets/overlays/overlay-mfb.png');
+		background-repeat: no-repeat;
+		background-position: right;
+		background-size: contain;
+	}
 }
