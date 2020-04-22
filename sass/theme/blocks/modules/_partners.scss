@@ -1,0 +1,44 @@
+.partner-container {
+	display: flex;
+	border-bottom: 1px solid $navy;
+	padding: 3rem 0;
+	flex-direction: column;
+	&:last-child {
+		border-bottom: none;
+	}
+	@include respond-to('md') {
+		flex-direction: row;
+	}
+}
+
+.partner-img {
+	flex-basis: 100%;
+	padding: 2rem;
+	img {
+		border-radius: 50%;
+		border: 3px solid white;
+	}
+	@include respond-to('md') {
+		flex-basis: 30%;
+		padding: 0 2rem;
+	}
+}
+
+.partner-copy {
+	font-size: 0.5rem;
+	flex-basis: 100%;
+	padding: 0 2rem;
+	p {
+		font-size: 1rem;
+	}
+	h1 {
+		font-size: 1.5rem;
+	}
+	
+	.service-description {
+		margin-top: 2rem;
+	}
+	@include respond-to('md') {
+		flex-basis: 70%;
+	}
+}
