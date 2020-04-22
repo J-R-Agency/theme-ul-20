@@ -91,11 +91,12 @@ get_header(); ?>
 										    
 			<?php wp_reset_postdata(); ?>
 			
-			<?php understrap_pagination(); ?>
+			
 					
 			
 		</div>
 	</div>
 </section>
+<?php understrap_pagination(); ?>
 
 <?php get_footer(); ?>
