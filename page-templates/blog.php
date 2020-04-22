@@ -43,7 +43,7 @@ get_header(); ?>
 			    		} ?>
 			    		
 			    	</a>
-			    	<h1><?php the_title(); ?></h1>
+			    	<a href="<?php the_permalink(); ?>"><h1><?php the_title(); ?></h1></a>
 			    	
 			    	<div class='blog-card-meta'>
 				    	
@@ -74,7 +74,7 @@ get_header(); ?>
 				    			echo "<img src='". get_template_directory_uri() ."/assets/images/blog-card-placeholder.jpg'>";
 				    		} ?>
 				    	</a>
-				    	<h1><?php the_title(); ?></h1>
+				    	<a href="<?php the_permalink(); ?>"><h1><?php the_title(); ?></h1></a>
 				    	<ul class='categories-list'>
 					    	<?php $categories = get_the_category();
 								  if ( ! empty( $categories )) {
