@@ -95,8 +95,10 @@ get_header(); ?>
 					
 			
 		</div>
+		<?php understrap_pagination(); ?>
 	</div>
+	
 </section>
-<?php understrap_pagination(); ?>
+
 
 <?php get_footer(); ?>
