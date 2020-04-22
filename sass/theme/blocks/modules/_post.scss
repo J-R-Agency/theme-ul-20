@@ -23,7 +23,7 @@
 	align-items: center;
 	@include respond-to('md') {
 		padding: 5rem;
-		align-items: start;
+		align-items: flex-start;
 	}
 	h2 {
 		@include _work-sans-semibold;

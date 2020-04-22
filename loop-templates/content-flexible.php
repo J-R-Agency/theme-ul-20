@@ -101,7 +101,7 @@ if( have_rows('fc_content_block') ):
 		            // TITLE AND CONTENT      	
 	            	if ( !empty( $mis_title ) ):
         				echo
-						"<div class='col-12 col-md-6'>
+						"<div class='col-12 col-md-4'>
 							<h1 class='mcb_title'>". $mis_title . "</h1>
 							<p class='mcb_content'>". $mis_subtitle . "</p>
 						</div>";
@@ -109,7 +109,7 @@ if( have_rows('fc_content_block') ):
 
 		            // PRIMARY ICON SET   	
         			echo "
-        			<div class='col-12 col-md-6'>
+        			<div class='col-12 col-md-8'>
         				<div class='row'>";
 						if( have_rows('mis_primary_icon_set') ):
 					    	while( have_rows('mis_primary_icon_set') ): the_row();
@@ -138,23 +138,17 @@ if( have_rows('fc_content_block') ):
 					
 					// SECONDARY ICON SET
         			echo "
-        				<div class='row'>";
+        				<div class='secondary-icon-container'>";
 						if( have_rows('mis_secondary_icon_set') ):
 					    	while( have_rows('mis_secondary_icon_set') ): the_row();
 						    	$mis_secondary_icon_image = get_sub_field('mis_secondary_icon_image');
 								
 								echo "
-									<div class='col-4'>
-										<div class='secondary-icon-wrapper'>
-											<div class='row'>
-												<div class='col-12 col-md-6'>
-													<img src='".$mis_secondary_icon_image['url']."' alt='".$mis_secondary_icon_image['alt']. "' class='secondary-icon'>
-												</div>
+									<div class='secondary-icon-wrapper'>
+										<img src='".$mis_secondary_icon_image['url']."' alt='".$mis_secondary_icon_image['alt']. "' class='secondary-icon'>
 											
-												<div class='col-12 col-md-6 secondary-icon-name'>
-													<span>".$mis_secondary_icon_image['caption']."</span>
-												</div>
-											</div>
+										<div class='secondary-icon-name'>
+											<span>".$mis_secondary_icon_image['caption']."</span>
 										</div>
 									</div>
 								";
