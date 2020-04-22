@@ -18,7 +18,6 @@ get_header(); ?>
 	<div class="blog-content font-navy">
 		<div class="row blog-posts">
 			<?php
-				
 				$wp_query = new WP_Query(array(
 					'post_type'=>'post',
 					'post_status'=>'publish',
@@ -26,16 +25,23 @@ get_header(); ?>
 					'paged' => ( get_query_var('paged') ? get_query_var('paged') : 0)
 				));															
 			?>
+			
+			
 			<!-- WHILE LOOP -->
-		    <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
+		    <?php while ( $wp_query->have_posts() ) : $wp_query->the_post();
+			    $featured_image_position = get_field('featured_image_position');?>
 		    	<?php if( $wp_query->current_post == 0 && !is_paged() ) : ?>
+			    
 		    	<div class='blog-card-first'>
 			    	<a href="<?php the_permalink(); ?>">
+				    	
 			    		<?php if ( has_post_thumbnail() ) {
-				    		echo "<img src=\"" . get_the_post_thumbnail_url() . "\">";
+				    		echo "<img src=\"" . get_the_post_thumbnail_url() . "\"
+				    				style='object-position: ".$featured_image_position." ;'>";
 			    		} else { 
 			    			echo "<img src='". get_template_directory_uri() ."/assets/images/blog-card-placeholder.jpg'>";
 			    		} ?>
+			    		
 			    	</a>
 			    	<h1><?php the_title(); ?></h1>
 			    	
@@ -62,7 +68,8 @@ get_header(); ?>
 			    	<div class='blog-card'>
 				    	<a href="<?php the_permalink(); ?>">
 				    		<?php if ( has_post_thumbnail() ) {
-					    		echo "<img src=\"" . get_the_post_thumbnail_url() . "\">";
+					    		echo "<img src=\"" . get_the_post_thumbnail_url() . "\"
+					    				style='object-position:".$featured_image_position.";'>";
 				    		} else { 
 				    			echo "<img src='". get_template_directory_uri() ."/assets/images/blog-card-placeholder.jpg'>";
 				    		} ?>
