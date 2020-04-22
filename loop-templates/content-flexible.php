@@ -306,10 +306,15 @@ if( have_rows('fc_content_block') ):
 							 
 							     while ( $children->have_posts() ) : $children->the_post();
 								 	$cs_thumbnail = get_field('cs_thumbnail');
+								 	$global_standfirst = get_field('global_standfirst');
 							 
 							        echo "
 						        		<div class='thumb-wrapper'>
 								            <a href='",the_permalink(),"'>
+								            	<div class='thumb-hover'>
+								            		<h1>".$global_standfirst['gs_subhead']."</h1>
+								            		<p>".$global_standfirst['gs_headline']."</p>
+								            	</div>
 								            	<img class='thumb-img' src='".$cs_thumbnail['url']."' alt='".$cs_thumbnail['alt']."'>
 								            </a>
 									    </div>  

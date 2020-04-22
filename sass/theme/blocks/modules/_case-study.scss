@@ -51,13 +51,50 @@
 
 .thumb-wrapper {
 	margin: 0.5rem;
-	flex-basis: 40%;
+	flex-basis: 100%;
+	position: relative;
+	a {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+	}
+	@include respond-to('md') {
+		flex-basis: 40%;
+	}
 }
 
 .thumb-img {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
+}
+
+.thumb-hover {
+	position: absolute;
+	background-color: rgba(255,255,255,0.9);
+	color: $navy;
+	padding: 1rem;
+	width: 80%;
+	height: 80%;
+	overflow: hidden;
+	background-image: url(../assets/images/yellow-slant.png);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: 50px;
+	h1 {
+		font-size: 1.2rem;
+	}
+	p {
+		font-size: 1.0rem;
+	}
+	@include respond-to('md') {
+		display: none;
+	}
+}
+
+.thumb-wrapper a:hover > .thumb-hover {
+	display: block;
 }
 
 // PARENT PAGE
