@@ -23,7 +23,7 @@ h2 {
 	font-size: 1.5rem;
 }
 
-p, span {
+p, span, li {
 	@include _work-sans-light;
 	font-size: 1.2rem;
 }

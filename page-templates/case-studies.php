@@ -39,6 +39,7 @@ get_header(); ?>
 		$global_standfirst = get_field('global_standfirst');
 	?>
     	<div class="case-study-wrapper font-navy">
+	    	
 	    	<div class='case-study-desc'>
 		    	<h1 class='font-teal'><?php echo $global_standfirst['gs_subhead']; ?></h1>
 		    	<h2><?php the_title(); ?></h2>
@@ -46,11 +47,13 @@ get_header(); ?>
 		    	<p class='case-study-intro'><?php echo $global_standfirst['gs_intro']; ?></p>
 		    	<a href="<?php the_permalink() ?>"><div class='navy-button'>Read More</div></a>
 	    	</div>
+	    	
 	    	<div class='case-study-img'>
 		    	<a href="<?php the_permalink() ?>" title="<?php get_the_title() ?>">
 		    		<img src="<?php echo $cs_thumbnail['url']; ?>">
 	    		</a>
 	    	</div>
+	    	
     	</div>
 	 <?php endwhile; ?>
 <?php endif; ?> 
