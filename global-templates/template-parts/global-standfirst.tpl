@@ -30,18 +30,18 @@ defined( 'ABSPATH' ) || exit;
 					<?php if (is_page_template( 'page-templates/about.php' )): ?>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/bird_icon_white.png" class="gs-headline-image">
 					<?php endif; ?>
-					<h1 class="<?php echo $gs_headline_color; ?>"><?php echo esc_attr($gs_headline); ?></h1>
+					<h1 class="<?php echo $gs_headline_color; ?>"><?php echo $gs_headline; ?></h1>
 					<?php if (is_page_template( 'page-templates/case-study.php' )): ?>
 						<hr class="cs-hr">
 					<?php endif; ?>
-					<h2 class="<?php echo $gs_subhead_color; ?>"><?php echo esc_attr($gs_subhead); ?></h2>
+					<h2 class="<?php echo $gs_subhead_color; ?>"><?php echo $gs_subhead; ?></h2>
 				</div>
 				<div class="col-12 col-md-7">
 					<?php if ($gs_intro): ?>
-						<p class="<?php echo $gs_text_color; ?>"><strong><?php echo esc_attr($gs_intro); ?></strong></p>
+						<p class="<?php echo $gs_text_color; ?>"><strong><?php echo $gs_intro; ?></strong></p>
 					<?php endif; ?>
 					<?php if ($gs_secondary_intro): ?>
-						<p class="<?php echo $gs_text_color; ?>"><?php echo esc_attr($gs_secondary_intro); ?></p>
+						<p class="<?php echo $gs_text_color; ?>"><?php echo $gs_secondary_intro; ?></p>
 					<?php endif; ?>	
 				</div>
 			</div>
