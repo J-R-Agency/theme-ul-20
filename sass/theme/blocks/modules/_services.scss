@@ -1,0 +1,65 @@
+// SERVICES MODULE
+
+.mds-services-container {
+	display: flex;
+	flex-direction: row;
+	a {
+		color: $navy;
+	}
+}
+
+.mds-services-title {
+	display: flex;
+	align-items: center;
+	width: 30%;
+	h1 {
+		font-size: 1.5rem;
+	}
+}
+
+.mds-services {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 3rem;
+}
+
+.mds-service-icon {
+	display: flex;
+	flex-direction: row;
+}
+
+.mds-service-caption {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 50%;
+	padding: 0.5rem 1rem;
+	
+	.arrow {
+		width: 35px;
+	}
+}
+
+// SERVICE TEMPLATE PAGE
+.service-content-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.service-title {
+	width: 30%;
+	
+	img {
+		width: 150px;
+		height: 150px;
+		object-fit: contain;
+		margin-bottom: 2rem;
+	}
+}
+
+.service-content {
+	padding: 0 0 0 10rem;
+	h2 {
+		color: $purple;
+	}
+}

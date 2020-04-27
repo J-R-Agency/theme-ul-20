@@ -448,10 +448,11 @@ if( have_rows('fc_content_block') ):
         // -------------------------- //
         if( get_row_layout() == 'module_icon_description' ):
 			
-			$mid_style = get_sub_field('mid_style'); // Select
+			$mid_font_color = get_sub_field('mid_font_color'); // Select
+			$mid_background = get_sub_field('mid_background');
 			$mid_icon_descriptions = get_sub_field('mid_icon_descriptions');
 			
-			echo "<section class='generic'>";
+			echo "<section class='generic bg-".$mid_background."'>";
 			
 			if( have_rows('mid_icon_descriptions') ):
 				while( have_rows('mid_icon_descriptions') ): the_row();
@@ -468,7 +469,7 @@ if( have_rows('fc_content_block') ):
 									</div>
 								</div>
 								<div class='col-12 col-md-9'>
-									<h2 class='font-".$mid_style."'><strong>".$mid_title."</strong></h2>
+									<h2 class='font-".$mid_font_color."'><strong>".$mid_title."</strong></h2>
 									<p class='font-navy'>".$mid_description."</p>
 								</div>
 							</div>
@@ -480,6 +481,68 @@ if( have_rows('fc_content_block') ):
 			echo "</section>";
 			
 		endif; // End icon & description
+
+          // -------------------------- //
+         // - CASE: DISCOVER SERVICES -//
+        // -------------------------- //
+        if( get_row_layout() == 'module_discover_services' ):
+
+            $mds_title = get_sub_field('mds_title'); // Text
+            $mds_services = get_sub_field('mds_services');
+			
+            echo 
+            "<section class='generic bg-white font-navy'>
+            	<div class='mds-services-container'>
+	            	<div class='mds-services-title'>
+	            		<h1>".$mds_title."</h1>
+	            	</div>
+            	
+					<div class='mds-services'>
+            ";
+            
+					if( have_rows('mds_services') ):
+				    	while( have_rows('mds_services') ): the_row();
+					    	$mds_service = get_sub_field('mds_service');
+					    	$mds_link = get_sub_field('mds_link');
+					    	$arrow_color = "yellow";
+					    	
+					    	switch($mds_service['caption']) {
+						    	case "Business Strategy":
+						    		$arrow_color = "coral";
+						    		break;
+						    	case "Marketing Strategy":
+						    		$arrow_color = "yellow";
+						    		break;
+						    	case "Events":
+						    		$arrow_color = "teal";
+						    		break;
+						    	case "Autism-Friendly Services";
+						    		$arrow_color = "purple";
+						    		break;
+					    	}
+							
+							echo "
+							<a href='".$mds_link['url']."'>
+								<div class='mds-service-icon'>
+										<img src='".$mds_service['url']."' alt='".$mds_service['alt']. "' class='primary-icon'>
+									<div class='mds-service-caption'>
+										<span>".$mds_service['caption']."</span>
+											<img class='arrow'
+											src='".get_template_directory_uri()."/assets/icons/cat-arrow-$arrow_color.svg'>
+									</div>	
+								</div>	
+							</a>	
+							";
+							
+					    endwhile;
+				    endif;          	
+	            	        	
+				echo "</div>
+					</div>
+				</section>"; // Close module_content_block
+		endif; 
+ 
+ 
             
     // End loop.
     endwhile;
