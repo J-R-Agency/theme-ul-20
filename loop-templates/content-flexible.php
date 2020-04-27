@@ -273,28 +273,84 @@ if( have_rows('fc_content_block') ):
 			
             $mowb_title = get_sub_field('mowb_title'); // Text
             $mowb_subtitle = get_sub_field('mowb_subtitle'); // Text
+			$mowb_style = get_sub_field('mowb_style'); // Select
 			
-            echo 
-            "<!-- Module Our Work Block -->
-            <section class='generic bg-navy'>
-            	<div class='container'>
-            		<div class='row'>
-						<div class='col-12 col-md-5'>
-							<h1 class='font-white'>".$mowb_title."</h1>
-							<p class='font-yellow'>".$mowb_subtitle."</p>
+			// PRIMARY STYLE
+			if ($mowb_style == 'primary') {
+				echo 
+	            "<!-- Module Our Work Block -->
+	            <section class='generic bg-navy'>
+	            	<div class='container'>
+	            		<div class='row'>
+							<div class='col-12 col-md-5'>
+								<h1 class='font-white'>".$mowb_title."</h1>
+								<p class='font-yellow'>".$mowb_subtitle."</p>
+							</div>
+							<div class='col-12 col-md-7'>
+							<div class='thumb-container'>
+							";
+								$pageSlug = get_page_by_path( 'case-studies' );
+								
+								//wp_list_pages( array(
+								//    'child_of' => $pageSlug->ID
+								//) );
+								
+								$args = array(
+								    'post_type'      => 'page', //write slug of post type
+								    'posts_per_page' => 4,
+								    'post_parent'    => $pageSlug->ID, //place here id of your parent page
+								    'order'          => 'ASC',
+								    'orderby'        => 'menu_order'
+								 );
+								 
+								$children = new WP_Query( $args );
+								 
+								if ( $children->have_posts() ) :
+								 
+								     while ( $children->have_posts() ) : $children->the_post();
+									 	$cs_thumbnail = get_field('cs_thumbnail');
+									 	$global_standfirst = get_field('global_standfirst');
+								 
+								        echo "
+							        		<div class='thumb-wrapper'>
+									            <a href='",the_permalink(),"'>
+									            	<div class='thumb-hover'>
+									            		<h1>".$global_standfirst['gs_subhead']."</h1>
+									            		<p>".$global_standfirst['gs_headline']."</p>
+									            	</div>
+									            	<img class='thumb-img' src='".$cs_thumbnail['url']."' alt='".$cs_thumbnail['alt']."'>
+									            </a>
+										    </div>  
+										";
+								 
+								    endwhile; 
+								endif; 
+								wp_reset_query(); 											
+							
+	                      	
+								echo "
+								</div>
+							</div>
 						</div>
-						<div class='col-12 col-md-7'>
-						<div class='thumb-container'>
+					</div>
+				</section>"; // Close module_event_block
+			}
+			// SECONDARY STYLE
+            elseif ($mowb_style == 'secondary') {
+	            echo 
+	            "<!-- Module Our Work Block -->	            
+		            <div class='secondary-mowb-container'>
+		            	<div class='title-container bg-grey'>
+							<h1 class='font-navy'>".$mowb_title."</h1>
+						</div>
+						
+						<div class='thumb-container bg-white'>
 						";
 							$pageSlug = get_page_by_path( 'case-studies' );
 							
-							//wp_list_pages( array(
-							//    'child_of' => $pageSlug->ID
-							//) );
-							
 							$args = array(
 							    'post_type'      => 'page', //write slug of post type
-							    'posts_per_page' => 4,
+							    'posts_per_page' => 3,
 							    'post_parent'    => $pageSlug->ID, //place here id of your parent page
 							    'order'          => 'ASC',
 							    'orderby'        => 'menu_order'
@@ -324,13 +380,11 @@ if( have_rows('fc_content_block') ):
 							endif; 
 							wp_reset_query(); 											
 						
-                      	
+	                  	
 							echo "
-							</div>
 						</div>
-					</div>
-				</div>
-			</section>"; // Close module_event_block
+					</div>"; // Close module_event_block
+            }
 		endif;	
 		
           // -------------------------- //
@@ -386,11 +440,47 @@ if( have_rows('fc_content_block') ):
 					</div>
 				</section>"; // Close module_event_block
 			}
-            
-		endif;			
 		
+		endif;
+ 
+          // -------------------------- //
+         // - CASE: ICON & DESCRIPTION -//
+        // -------------------------- //
+        if( get_row_layout() == 'module_icon_description' ):
 			
-		
+			$mid_style = get_sub_field('mid_style'); // Select
+			$mid_icon_descriptions = get_sub_field('mid_icon_descriptions');
+			
+			echo "<section class='generic'>";
+			
+			if( have_rows('mid_icon_descriptions') ):
+				while( have_rows('mid_icon_descriptions') ): the_row();
+					$mid_icon = get_sub_field('mid_icon');
+					$mid_title = get_sub_field('mid_title');
+					$mid_description = get_sub_field('mid_description');
+					
+					echo "
+						<div class='container mid-icon-description'>
+							<div class='row'>
+								<div class='col-12 col-md-3'>
+									<div class='mid-icon'>
+										<img class='primary-icon' src='".$mid_icon['url']."' alt='".$mid_icon['alt']."'>
+									</div>
+								</div>
+								<div class='col-12 col-md-9'>
+									<h2 class='font-".$mid_style."'><strong>".$mid_title."</strong></h2>
+									<p class='font-navy'>".$mid_description."</p>
+								</div>
+							</div>
+						</div>
+					";
+				endwhile;
+			endif;
+			
+			echo "</section>";
+			
+		endif; // End icon & description
+            
     // End loop.
     endwhile;
 
