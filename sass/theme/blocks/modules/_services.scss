@@ -19,14 +19,14 @@
 
 .mds-services {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	padding-left: 3rem;
-	width: 60%;
 }
 
 .mds-service-icon {
 	display: flex;
 	flex-direction: row;
+	min-width: 200px;
 }
 
 .mds-service-caption {
