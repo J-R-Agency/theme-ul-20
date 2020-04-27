@@ -17,6 +17,16 @@
 	}
 }
 
+.overlay-mid {
+	background-image: none;
+	@include respond-to ('md') {
+		background-image: url('../assets/overlays/overlay-mid.png');
+		background-repeat: no-repeat;
+		background-position: bottom right;
+		background-size: 15%;
+	}
+}
+
 .overlay-service {
 	background-image: url('../assets/overlays/overlay-service.png');
 	background-repeat: no-repeat;

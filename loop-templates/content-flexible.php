@@ -452,7 +452,13 @@ if( have_rows('fc_content_block') ):
 			$mid_background = get_sub_field('mid_background');
 			$mid_icon_descriptions = get_sub_field('mid_icon_descriptions');
 			
-			echo "<section class='generic bg-".$mid_background."'>";
+			echo "<section class='generic bg-".$mid_background." ";
+			
+			if ($mid_background == 'white') { 
+				echo "overlay-mid";
+			}
+			
+			echo "'>";
 			
 			if( have_rows('mid_icon_descriptions') ):
 				while( have_rows('mid_icon_descriptions') ): the_row();
@@ -479,6 +485,10 @@ if( have_rows('fc_content_block') ):
 			endif;
 			
 			echo "</section>";
+			
+			if ($mid_background == 'white') {
+				echo "<div class='patterned-border'></div>";
+			}
 			
 		endif; // End icon & description
 
@@ -524,7 +534,7 @@ if( have_rows('fc_content_block') ):
 							echo "
 							<a href='".$mds_link['url']."'>
 								<div class='mds-service-icon'>
-										<img src='".$mds_service['url']."' alt='".$mds_service['alt']. "' class='primary-icon'>
+										<img src='".$mds_service['url']."' alt='".$mds_service['alt']. "' class='service-icon'>
 									<div class='mds-service-caption'>
 										<span>".$mds_service['caption']."</span>
 											<img class='arrow'
