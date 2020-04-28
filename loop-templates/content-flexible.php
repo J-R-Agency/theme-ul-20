@@ -575,6 +575,25 @@ if( have_rows('fc_content_block') ):
 				</div>
 			</section>"; // Close module_content_block
 		endif;  
+ 
+ 	   	  // -------------------------- //
+         // -- CASE: WP CONTENT BLOCK -//
+        // -------------------------- //
+       elseif( get_row_layout() == 'fc_wp_content' ):
+       		
+       		echo "
+			<!-- Content Module -->
+				<section class='generic bg-white'>
+					";
+			if (have_posts()) : while (have_posts()) : the_post();
+					the_content();
+				endwhile;	
+			endif;	
+					
+			//get_post_field('post_content', $post->ID)
+					
+			echo "</section>
+       		"; 	
             
     // End loop.
     endwhile;
