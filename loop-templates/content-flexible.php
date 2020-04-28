@@ -573,27 +573,24 @@ if( have_rows('fc_content_block') ):
 	            	        	
 					</div>
 				</div>
-			</section>"; // Close module_content_block
-		endif;  
+			</section>"; // Close module_content_block 
  
  	   	  // -------------------------- //
          // -- CASE: WP CONTENT BLOCK -//
         // -------------------------- //
-       elseif( get_row_layout() == 'fc_wp_content' ):
+       elseif( get_row_layout() == 'module_wp_content' ):
        		
-       		echo "
-			<!-- Content Module -->
-				<section class='generic bg-white'>
-					";
+       		echo "<!-- Content Module -->
+				<section class='generic bg-white'>";
+				
 			if (have_posts()) : while (have_posts()) : the_post();
 					the_content();
-				endwhile;	
-			endif;	
-					
-			//get_post_field('post_content', $post->ID)
-					
+				endwhile;
+			endif;
+										
 			echo "</section>
-       		"; 	
+       		"; 
+       	endif;	
             
     // End loop.
     endwhile;
