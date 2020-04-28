@@ -189,6 +189,12 @@
 	a {
 		color: $teal;
 	}
+	p {
+		display: none;
+		&:first-of-type {
+			display: block;
+		}
+	}
 }
 
 .case-study-img {
