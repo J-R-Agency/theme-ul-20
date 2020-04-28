@@ -1,0 +1,73 @@
+.mcf-container {
+	display: flex;
+	flex-direction: column;
+	@include respond-to('md') {
+		flex-direction: row;
+	}
+}
+
+.mcf-title {
+	width: 100%;
+	padding-bottom: 2rem;
+	@include respond-to('md') {
+		width: 30%;	
+	}
+	img {
+		width: 125px;
+		height: 125px;
+		object-fit: contain;
+	}
+}
+
+.mcf-form {
+	width: 100%;
+	@include respond-to('md') {
+		width: 70%;
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		@include respond-to('md') {
+			flex-direction: row;
+		}	
+	}
+	.contact-form-left {
+		padding-right: 1rem;
+		padding-bottom: 2rem;
+		
+	}
+	.contact-form-right {
+		
+	}
+}
+
+.btn, .wpcf7 input[type="submit"] {
+	background-color: white;
+	width: 125px;
+	color: $navy;
+}
+
+div.wpcf7 .ajax-loader {
+	width: 0;
+	margin: 0;
+}
+
+.contact-form-submit {
+	display: flex;
+	justify-content: space-between;
+}
+
+.wpcf7-list-item-label {
+	font-size: 1rem;
+}
+
+.wpcf7-checkbox > span {
+	display: flex;
+	margin: 0;
+	align-items: center;
+}
+
+input[type="checkbox"] {
+	margin-right: 1rem;
+	position: relative;
+}

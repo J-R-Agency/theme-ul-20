@@ -551,8 +551,30 @@ if( have_rows('fc_content_block') ):
 					</div>
 				</section>"; // Close module_content_block
 		endif; 
- 
- 
+
+          // -------------------------- //
+         // ---- CASE: CONTACT FORM ---//
+        // -------------------------- //
+        if( get_row_layout() == 'module_contact_form' ):
+
+            $mcf_title = get_sub_field('mcf_title'); // Text
+			
+            echo 
+            "<section class='generic bg-navy font-white'>
+            	<div class='mcf-container'>
+	            	<div class='mcf-title'>
+	            		<img src='".get_template_directory_uri()."/assets/images/bird_icon_white.png'>
+	            		<h1>".$mcf_title."</h1>
+	            	</div>
+            	
+					<div class='mcf-form'>
+            
+                    	".do_shortcode( '[contact-form-7 id="364" title="Contact Form"]' )."
+	            	        	
+					</div>
+				</div>
+			</section>"; // Close module_content_block
+		endif;  
             
     // End loop.
     endwhile;
