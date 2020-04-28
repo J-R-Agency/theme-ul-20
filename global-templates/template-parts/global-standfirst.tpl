@@ -38,11 +38,8 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="col-12 col-md-7">
 					<?php if ($gs_intro): ?>
-						<p class="<?php echo $gs_text_color; ?>"><strong><?php echo $gs_intro; ?></strong></p>
+						<div class="<?php echo $gs_text_color; ?>"><?php echo $gs_intro; ?></p>
 					<?php endif; ?>
-					<?php if ($gs_secondary_intro): ?>
-						<p class="<?php echo $gs_text_color; ?>"><?php echo $gs_secondary_intro; ?></p>
-					<?php endif; ?>	
 				</div>
 			</div>
 		</div>

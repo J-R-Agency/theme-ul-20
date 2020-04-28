@@ -62,12 +62,12 @@
 		align-items: center;
 	}
 	@include respond-to('md') {
-		flex-basis: 40%;
+		flex-basis: 46%;
 	}
 }
 
 .thumb-img {
-	height: 250px;
+	height: 225px;
 	width: 100%;
 	object-fit: cover;
 }
