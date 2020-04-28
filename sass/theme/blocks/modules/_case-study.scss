@@ -186,6 +186,9 @@
 	@include respond-to('md') {
 		max-width: 90%;	
 	}
+	a {
+		color: $teal;
+	}
 }
 
 .case-study-img {

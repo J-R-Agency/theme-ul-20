@@ -44,7 +44,7 @@ get_header(); ?>
 		    	<h1 class='font-teal'><?php echo $global_standfirst['gs_subhead']; ?></h1>
 		    	<h2><?php the_title(); ?></h2>
 		    	<hr class="cs-hr-teal">
-		    	<p class='case-study-intro'><?php echo $global_standfirst['gs_intro']; ?></p>
+		    	<div class='case-study-intro'><?php echo $global_standfirst['gs_intro']; ?></div>
 		    	<a href="<?php the_permalink() ?>"><div class='navy-button'>Read More</div></a>
 	    	</div>
 	    	
