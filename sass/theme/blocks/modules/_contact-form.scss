@@ -1,6 +1,7 @@
 .mcf-container {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	@include respond-to('md') {
 		flex-direction: row;
 	}
