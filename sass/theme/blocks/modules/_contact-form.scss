@@ -32,6 +32,7 @@
 	form {
 		display: flex;
 		flex-direction: column;
+		flex-wrap: wrap;
 		@include respond-to('md') {
 			flex-direction: row;
 		}	
@@ -39,11 +40,16 @@
 	.contact-form-left {
 		padding-right: 1rem;
 		padding-bottom: 2rem;
+		flex-basis: 50%;
 		
 	}
 	.contact-form-right {
-		
+		flex-basis: 50%;
 	}
+}
+
+wpcf7-response-output {
+	flex-basis: 100%;
 }
 
 .btn, .wpcf7 input[type="submit"] {
