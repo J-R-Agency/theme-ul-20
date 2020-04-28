@@ -45,7 +45,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						    <?php
 						}
 						if ( $allid ) {
-							?><span><a id="all" href="<?php echo site_url();?>/news" class="link"><div class="btn_red-border">View All</div></a></span><?php
+							?><span><a id="all" href="<?php echo site_url();?>/blog-archive" class="link"><div class="btn_red-border">View All</div></a></span><?php
 						}
 						
 						if ( $nextid ) {
