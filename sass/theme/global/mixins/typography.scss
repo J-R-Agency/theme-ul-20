@@ -28,5 +28,6 @@ p, span, li {
 	font-size: 1.2rem;
 	strong {
 		@include _work-sans-semibold;
+		font-weight: initial;
 	}
 }
