@@ -17,6 +17,9 @@
 	img {
 		border-radius: 50%;
 		border: 3px solid white;
+		height: 250px;
+		width: 250px;
+		object-fit: cover;
 	}
 	@include respond-to('md') {
 		flex-basis: 30%;
