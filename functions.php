@@ -70,21 +70,7 @@ function custom_pagination() {
  
  // Adjust number of posts shown on first page
  
-function sk_query_offset( &$query ) {
-	if ( !( $query->is_home() || is_main_query() ) || is_admin() ) return;
-		$offset = -1;
-		$ppp = get_option( 'posts_per_page' );
-	if ( $query->is_paged ) {
-		$page_offset = $offset + ( ( $query->query_vars['paged']-1 ) * $ppp );
-		$query->set( 'offset', $page_offset );
-	} else $query->set( 'posts_per_page', $offset + $ppp );
-}
-add_action( 'pre_get_posts', 'sk_query_offset', 1 );
 
-function sk_adjust_offset_pagination( $found_posts, $query ) {
-	$offset = -1;
-	if ( is_admin() ) return;
-	else if ( $query->is_home() && is_main_query() ) return $found_posts - $offset;
-	return $found_posts;
-}
-add_filter( 'found_posts', 'sk_adjust_offset_pagination', 1, 2 );
+
+
+

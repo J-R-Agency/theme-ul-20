@@ -52,6 +52,14 @@ get_header(); ?>
 			
 		</div>
 		<?php understrap_pagination(); ?>
+		<?php
+			$count_posts = wp_count_posts();
+			 
+			if ( $count_posts ) {
+			    $published_posts = $count_posts->publish;
+			    echo $published_posts;
+			}	
+		?>
 	</div>
 	
 </section>

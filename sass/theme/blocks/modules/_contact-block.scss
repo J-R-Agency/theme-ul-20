@@ -1,3 +1,11 @@
+.contact-title {
+	text-align: center;
+	@include respond-to('md') {
+		text-align: left;
+	}
+}
+
+
 .contact-icon {
 	display: flex;
 	flex-direction: column;

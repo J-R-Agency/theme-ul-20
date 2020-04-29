@@ -179,7 +179,7 @@ if( have_rows('fc_content_block') ):
 					<div class='row'>
 					
 						<div class='col-12 col-md-6'>
-							<h1>Get in touch</h1>
+							<h1 class='contact-title'>Get in touch</h1>
 						</div>
 						
 						<div class='col-12 col-md-6'>
