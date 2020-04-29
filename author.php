@@ -71,9 +71,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<!-- Website -->
 			<div class='author-website'>
 				<?php if ( ! empty( $curauth->user_url ) ) : ?>
-					<dt><?php esc_html_e( 'Website', 'understrap' ); ?></dt>
+					<dt><p style='margin:0;'><?php esc_html_e( 'Website', 'understrap' ); ?></p></dt>
 					<dd>
-						<a href="<?php echo esc_url( $curauth->user_url ); ?>"><?php echo esc_html( $curauth->user_url ); ?></a>
+						<p><a href="<?php echo esc_url( $curauth->user_url ); ?>"><?php echo esc_html( $curauth->user_url ); ?></a></p>
 					</dd>
 				<?php endif; ?>
 			</div>
@@ -85,8 +85,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<!-- Author bio -->
 			<div class='author-bio'>
 				<?php if ( ! empty( $curauth->user_description ) ) : ?>
-					<dt><?php esc_html_e( 'Author Bio', 'understrap' ); ?></dt>
-					<dd><?php echo $curauth->user_description, 'understrap'; ?></dd>
+					<dt><p style='margin:0;'><?php esc_html_e( 'Author Bio', 'understrap' ); ?></p></dt>
+					<dd><p><?php echo $curauth->user_description; ?></p></dd>
 				<?php endif; ?>
 			</div>
 		</dl>
