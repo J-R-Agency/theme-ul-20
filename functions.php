@@ -88,4 +88,19 @@ remove_filter( 'pre_user_description', 'wp_filter_kses' );
 add_filter( 'pre_user_description', 'wp_filter_post_kses' );
 
 
+add_action( 'pre_get_posts', 'sk_change_posts_per_page' );
 
+/**
+ * Change Posts Per Page for first page of Posts page
+ *
+ * @param object $query data
+ */
+function sk_change_posts_per_page( $query ) {
+
+  if( $query->is_main_query() && ! is_admin() && $query->is_home() && ! $query->is_paged() ) {
+    $query->set( 'posts_per_page', '4' );
+  }
+
+}
+
+add_filter( 'c2c_cpl_enable_all_individual_limits', '__return_true' );

@@ -16,6 +16,9 @@
 		border-color: none;
 		color: $purple;
 	}
+	&.dots {
+		color: $navy;
+	}
 }
 
 .page-item.active .page-link {
