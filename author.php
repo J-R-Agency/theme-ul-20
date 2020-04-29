@@ -111,7 +111,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 		
 				<?php else : ?>
 		
-					<p>This author has not written any blog posts yet.</p>
+					<p class='no-blog-posts'>This author has not written any blog posts yet.</p>
 		
 				<?php endif; ?>
 		
