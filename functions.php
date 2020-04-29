@@ -80,5 +80,12 @@ add_action( 'the_seo_framework_after_admin_init', function() {
 	remove_action( 'edit_user_profile_update', [ $tsf, '_update_user_settings' ], 10 );
 } );
 
+// Allow some HTML markup in biographical info
+
+// Disable WordPress sanitization to allow more than just $allowedtags from /wp-includes/kses.php.
+remove_filter( 'pre_user_description', 'wp_filter_kses' );
+// Add sanitization for WordPress posts.
+add_filter( 'pre_user_description', 'wp_filter_post_kses' );
+
 
 

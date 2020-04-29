@@ -64,7 +64,9 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 		
 		<div class='entry-author-info'>
-			<h2><?php the_author_meta( 'display_name' ); ?></h2>
+			<a class='author-link' href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>">
+				<h2><?php the_author_meta( 'display_name' ); ?></h2>
+			</a>
 			
 			<!-- Author social media -->
 			<div class='author-social-media'>
