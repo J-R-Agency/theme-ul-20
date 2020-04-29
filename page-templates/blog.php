@@ -17,11 +17,10 @@ get_header(); ?>
 	<?php include (get_template_directory() . '/global-templates/template-parts/post-sidebar.tpl'); ?>
 	<div class="blog-content font-navy">
 		<div class="row blog-posts">	
-			<!--<?php
+			<?php
 				$wp_query = new WP_Query(array(
 					'post_type'=>'post',
 					'post_status'=>'publish',
-					'posts_per_page'=>5,
 					'paged' => ( get_query_var('paged') ? get_query_var('paged') : 0)
 				));															
 			?>
@@ -40,11 +39,11 @@ get_header(); ?>
 								    
 			<?php endwhile; ?>
 										    
-			<?php wp_reset_postdata(); ?>-->
+			<?php wp_reset_postdata(); ?>
 			
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<!--<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<?php include (get_template_directory() . '/global-templates/template-parts/small-blog-card.tpl'); ?>
-			<?php endwhile; endif; ?>
+			<?php endwhile; endif; ?>-->
 			
 		</div>
 		<?php understrap_pagination(); ?>
