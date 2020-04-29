@@ -111,7 +111,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 		
 				<?php else : ?>
 		
-					<?php get_template_part( 'loop-templates/content', 'none' ); ?>
+					<p>This author has not written any blog posts yet.</p>
 		
 				<?php endif; ?>
 		
