@@ -39,6 +39,35 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<h1><?php echo esc_html( $curauth->nickname ); ?></h1>
 			</div>
 			
+			<!-- Author social media -->
+			
+			<div class='author-social-media'>
+				<?php
+					$author_id = get_the_author_meta('ID');
+					
+					if( have_rows('author_social_media', 'user_'. $author_id) ): ?>
+					
+					<ul class='social-media-icons'>
+										
+					<?php while( have_rows('author_social_media', 'user_'. $author_id) ): the_row(); 
+				
+						// vars
+						$author_social_media_type = get_sub_field('author_social_media_type', 'user_'. $author_id);
+						$author_social_media_url = get_sub_field('author_social_media_url', 'user_'. $author_id);
+				
+						?>
+						
+						<li>
+							<a href='<?php echo $author_social_media_url['url'] ?>' target="_blank">
+								<img src='<?php echo get_template_directory_uri();?>/assets/images/<?php echo $author_social_media_type; ?>_navy.png'>	
+							</a>
+						</li>
+				
+					<?php endwhile; ?>
+					</ul>				
+				<?php endif; ?>				
+			</div>
+			
 			<!-- Website -->
 			<div class='author-website'>
 				<?php if ( ! empty( $curauth->user_url ) ) : ?>
