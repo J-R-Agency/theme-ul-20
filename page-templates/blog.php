@@ -17,45 +17,29 @@ get_header(); ?>
 	<?php include (get_template_directory() . '/global-templates/template-parts/post-sidebar.tpl'); ?>
 	<div class="blog-content font-navy">
 		<div class="row blog-posts">
-
-			<?php
-				$wp_query_first = new WP_Query(array(
-					'post_type'=>'post',
-					'post_status'=>'publish',
-					'posts_per_page'=>1,
-				));																			
-			?>
-			
-			<!-- WHILE LOOP -->
-		    <?php while ( $wp_query_first->have_posts() ) : $wp_query_first->the_post();
-			    $featured_image_position = get_field('featured_image_position');?>
-		    	<?php if( !is_paged() ) : ?>
-			    
-		    	<?php include_once (get_template_directory() . '/global-templates/template-parts/large-blog-card.tpl'); ?>
-
-		    	<?php endif; ?>
-								    
-			<?php endwhile; ?>
-						
-			
 			<?php
 				$wp_query = new WP_Query(array(
 					'post_type'=>'post',
 					'post_status'=>'publish',
 					'posts_per_page'=>5,
 					'paged' => ( get_query_var('paged') ? get_query_var('paged') : 0)
-				));																			
+				));
+																			
 			?>
 			
 			
 			<!-- WHILE LOOP -->
 		    <?php while ( $wp_query->have_posts() ) : $wp_query->the_post();
 			    $featured_image_position = get_field('featured_image_position');?>
-		    	<?php if($wp_query->current_post != 0 ): ?>
+		    	<?php if( $wp_query->current_post == 0 && !is_paged() ) : ?>
+			    
+		    	<?php include_once (get_template_directory() . '/global-templates/template-parts/large-blog-card.tpl'); ?>
+		    	
+		    	<?php else : ?>
 				
-					<?php include (get_template_directory() . '/global-templates/template-parts/small-blog-card.tpl'); ?>
-				
-				<?php endif; ?>
+				<?php include (get_template_directory() . '/global-templates/template-parts/small-blog-card.tpl'); ?>
+
+		    	<?php endif; ?>
 								    
 			<?php endwhile; ?>
 										    
