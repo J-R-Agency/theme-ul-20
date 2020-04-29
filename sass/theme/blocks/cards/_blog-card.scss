@@ -12,6 +12,7 @@
 
 .blog-content {
 	padding: 2rem;
+	width: 100%;
 	@include respond-to('md') {
 		padding: 5rem;
 	}
