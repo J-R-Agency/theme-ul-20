@@ -1,0 +1,41 @@
+.author-info-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-bottom: 2rem;
+	flex-wrap: wrap;
+	.author-info {
+		flex-direction: column;
+		padding-left: 0;
+		width: 100%;
+		text-align: center;
+		display: flex;	
+		justify-content: center;
+		@include respond-to('md') {
+			padding-left: 2rem;
+			width: 50%;
+			text-align: left;
+		}
+	}
+	a {
+		color: $purple;
+	}
+}
+
+.author-avatar {
+	display: flex;
+	justify-content: center;
+	flex-basis: 100%;
+	margin-bottom: 2rem;
+	@include respond-to('md') {
+		flex-basis: 20%;
+		margin-bottom: 0;
+	}
+	img {
+		width: 150px;
+		height: 150px;
+		border: 3px solid white;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+}

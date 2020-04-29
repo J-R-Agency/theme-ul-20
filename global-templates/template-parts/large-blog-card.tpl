@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 	
 	<div class='blog-card-meta'>
     	
-    	<span>By <?php echo (get_the_author_meta('display_name')); ?></span>
+    	<span>By <?php the_author_posts_link(); ?></span>
 		<span class='meta-separator'>|</span>
 		<span><?php echo get_the_date('d/m/Y'); ?></span>
 		

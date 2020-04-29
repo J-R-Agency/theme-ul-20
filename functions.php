@@ -68,9 +68,17 @@ function custom_pagination() {
  add_action( 'understrap_pagination', 'custom_pagination' );
  
  
- // Adjust number of posts shown on first page
- 
+// Remove "Authorial info"
 
+add_action( 'the_seo_framework_after_admin_init', function() {
+	$tsf = the_seo_framework();
+
+	remove_action( 'show_user_profile', [ $tsf, '_add_user_author_fields' ], 0 );
+	remove_action( 'edit_user_profile', [ $tsf, '_add_user_author_fields' ], 0 );
+
+	remove_action( 'personal_options_update', [ $tsf, '_update_user_settings' ], 10 );
+	remove_action( 'edit_user_profile_update', [ $tsf, '_update_user_settings' ], 10 );
+} );
 
 
 

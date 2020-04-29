@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 			
 			<?php echo the_category(); ?>
 			
-			By <?php echo (get_the_author_meta('display_name')); ?>
+			By <?php the_author_posts_link(); ?>
 			<span class='meta-separator'>|</span>
 			<?php echo get_the_date('d/m/Y'); ?>
 
