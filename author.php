@@ -43,17 +43,17 @@ $container = get_theme_mod( 'understrap_container_type' );
 			
 			<div class='author-social-media'>
 				<?php
-					$author_id = get_the_author_meta('ID');
+					$author_id = $curauth->ID ;
 					
-					if( have_rows('author_social_media', 'user_'. $author_id) ): ?>
+					if( have_rows('author_social_media', 'user_'. $curauth->ID ) ): ?>
 					
 					<ul class='social-media-icons'>
 										
-					<?php while( have_rows('author_social_media', 'user_'. $author_id) ): the_row(); 
+					<?php while( have_rows('author_social_media', 'user_'. $curauth->ID ) ): the_row(); 
 				
 						// vars
-						$author_social_media_type = get_sub_field('author_social_media_type', 'user_'. $author_id);
-						$author_social_media_url = get_sub_field('author_social_media_url', 'user_'. $author_id);
+						$author_social_media_type = get_sub_field('author_social_media_type', 'user_'. $curauth->ID );
+						$author_social_media_url = get_sub_field('author_social_media_url', 'user_'. $curauth->ID );
 				
 						?>
 						
