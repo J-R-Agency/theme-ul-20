@@ -45,15 +45,15 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<?php
 					$author_id = $curauth->ID ;
 					
-					if( have_rows('author_social_media', 'user_'. $curauth->ID ) ): ?>
+					if( have_rows('author_social_media', 'user_'. $author_id ) ): ?>
 					
 					<ul class='social-media-icons'>
 										
-					<?php while( have_rows('author_social_media', 'user_'. $curauth->ID ) ): the_row(); 
+					<?php while( have_rows('author_social_media', 'user_'. $author_id ) ): the_row(); 
 				
 						// vars
-						$author_social_media_type = get_sub_field('author_social_media_type', 'user_'. $curauth->ID );
-						$author_social_media_url = get_sub_field('author_social_media_url', 'user_'. $curauth->ID );
+						$author_social_media_type = get_sub_field('author_social_media_type', 'user_'. $author_id );
+						$author_social_media_url = get_sub_field('author_social_media_url', 'user_'. $author_id );
 				
 						?>
 						

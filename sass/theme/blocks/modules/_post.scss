@@ -130,6 +130,24 @@
 	}
 }
 
+.entry-author {
+	background-color: $grey;
+	padding: 3rem;
+	display: flex;
+	flex-wrap: wrap;
+	.author-avatar {
+		flex-basis: 30%;
+	}
+	.entry-author-info {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 70%;
+		.author-description {
+			font-size: 0.8rem;
+		}
+	}
+}
+
 .entry-content {
 	margin-bottom: 2rem;
 	display: flex;
