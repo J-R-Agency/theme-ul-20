@@ -21,9 +21,12 @@ get_header(); ?>
 				$wp_query = new WP_Query(array(
 					'post_type'=>'post',
 					'post_status'=>'publish',
-					'posts_per_page'=>5,
+					'posts_per_page'=>6,
 					'paged' => ( get_query_var('paged') ? get_query_var('paged') : 0)
-				));															
+				));
+				
+				
+																			
 			?>
 			
 			
