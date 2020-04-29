@@ -40,9 +40,21 @@
 	}
 }
 
-.author-social-media > ul > li {
-	width: 30px;
-	margin: 0 2rem 0 0;
+.author-social-media{
+	ul {
+		justify-content: center;
+		@include respond-to ('md') {
+			justify-content: flex-start;
+		}
+		li {
+			width: 30px;
+			margin: 0 1rem;
+			@include respond-to ('md') {
+				margin: 0 2rem 0 0;
+			}
+		}
+	}
+	
 }
 
 .no-blog-posts {
