@@ -86,7 +86,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<div class='author-bio'>
 				<?php if ( ! empty( $curauth->user_description ) ) : ?>
 					<dt><?php esc_html_e( 'Author Bio', 'understrap' ); ?></dt>
-					<dd><?php esc_html_e( $curauth->user_description, 'understrap' ); ?></dd>
+					<dd><?php echo $curauth->user_description, 'understrap'; ?></dd>
 				<?php endif; ?>
 			</div>
 		</dl>
