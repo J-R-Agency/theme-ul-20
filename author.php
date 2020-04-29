@@ -73,7 +73,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<?php if ( ! empty( $curauth->user_url ) ) : ?>
 					<dt><p style='margin:0;'><?php esc_html_e( 'Website', 'understrap' ); ?></p></dt>
 					<dd>
-						<p><a href="<?php echo esc_url( $curauth->user_url ); ?>"><?php echo esc_html( $curauth->user_url ); ?></a></p>
+						<p><a href="<?php echo esc_url( $curauth->user_url ); ?>" target="_blank"><?php echo esc_html( $curauth->user_url ); ?></a></p>
 					</dd>
 				<?php endif; ?>
 			</div>
