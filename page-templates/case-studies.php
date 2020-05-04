@@ -38,13 +38,14 @@ get_header(); ?>
 		    	<h1 class='font-teal'><?php echo $global_standfirst['gs_subhead']; ?></h1>
 		    	<h2><?php the_title(); ?></h2>
 		    	<hr class="cs-hr-teal">
-		    	<div class='case-study-intro'><?php echo $global_standfirst['gs_intro']; ?></div>
-		    	<a href="<?php the_permalink() ?>"><div class='navy-button'>Read More</div></a>
+		    	<?php $intro = strip_tags($global_standfirst['gs_intro'], '<p>'); ?>
+		    	<div class='case-study-intro'><?php echo $intro; ?></div>
+		    	<a href="<?php esc_url(the_permalink()); ?>"><div class='navy-button'>Read More</div></a>
 	    	</div>
 	    	
 	    	<div class='case-study-img'>
-		    	<a href="<?php the_permalink() ?>" title="<?php get_the_title() ?>">
-		    		<img src="<?php echo $cs_thumbnail['url']; ?>">
+		    	<a href="<?php esc_url(the_permalink()); ?>" title="<?php get_the_title() ?>">
+		    		<img src="<?php echo esc_url($cs_thumbnail['url']); ?>">
 	    		</a>
 	    	</div>
 	    	
