@@ -14,10 +14,12 @@
 .partner-img {
 	flex-basis: 100%;
 	margin: 2rem;
-	min-height: 250px;
-	max-height: 250px;
-	min-width: 250px;
-	max-width: 250px;
+	
+	$img-size: 200px;
+	min-height: $img-size;
+	max-height: $img-size;
+	min-width: $img-size;
+	max-width: $img-size;
 	img {
 		border-radius: 50%;
 		border: 3px solid white;
