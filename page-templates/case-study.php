@@ -16,6 +16,9 @@ get_header(); ?>
 <!-- Hero image -->
 <?php include_once (get_template_directory() . '/global-templates/template-parts/hero.tpl'); ?>
 
+<?php include_once (get_template_directory() . '/global-templates/template-parts/global-standfirst.tpl'); ?>
+
+
 <!-- Services used -->
 <section class="generic bg-white font-navy">
 	<div class='services-used'>
