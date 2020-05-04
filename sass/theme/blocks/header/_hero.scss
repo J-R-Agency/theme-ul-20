@@ -5,7 +5,6 @@
 	margin: auto;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -13,7 +12,7 @@
 	align-items: center;
 	
 	@include respond-to ('md') {
-		height: 120vh;
+		height: 100vh;
 	}
 	
 	h2 {
@@ -22,9 +21,9 @@
 		width: 90%;
 		text-shadow: 2px 2px 5px #2b2b2b;
 		font-size: 1.5rem;
-		@include respond-to ('lg') {
+		@include respond-to ('md') {
 			width: 60%;
-			font-size: 3rem;
+			font-size: 2.5rem;
 		}
 	}
 	
@@ -32,10 +31,9 @@
 		width: 125px;
 		height: 125px;
 		margin-bottom: 0rem;
-		@include respond-to ('lg') {
+		@include respond-to ('md') {
 			width: 300px;
 			height: 300px;
-			margin-bottom: 2rem;
 		}
 	}
 }

@@ -14,12 +14,7 @@ defined( 'ABSPATH' ) || exit;
 get_header(); ?>
 
 <!-- Hero image -->
-<?php if ( has_post_thumbnail() ): ?>
-	<?php $thumb = get_the_post_thumbnail_url(); ?>
-	<section>			
-		<div class="hero" style="background-image: url('<?php echo $thumb; ?>');"></div>
-	<section>					
-<?php endif ?>
+<?php include_once (get_template_directory() . '/global-templates/template-parts/hero.tpl'); ?>
 
 <?php include_once (get_template_directory() . '/global-templates/template-parts/global-standfirst.tpl'); ?>
 

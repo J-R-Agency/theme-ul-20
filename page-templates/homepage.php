@@ -17,7 +17,7 @@ get_header(); ?>
 <?php if ( has_post_thumbnail() ): ?>
 	<?php $thumb = get_the_post_thumbnail_url(); ?>
 	<section>			
-		<div class="hero" style="background-image: url('<?php echo $thumb; ?>');">
+		<div class="hero" style="background-image: url('<?php echo $thumb; ?>'); background-position: <?php if (!$featured_image_position){ echo 'center'; } else { echo $featured_image_position; } ?>">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/bird_icon_white.png" id="white-bird">
 			<h2>Business and marketing support that helps you soar like never before</h2>
 			
