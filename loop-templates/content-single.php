@@ -55,7 +55,7 @@ defined( 'ABSPATH' ) || exit;
 
 	</footer><!-- .entry-footer -->
 	
-	<div class='entry-author'>
+	<!--<div class='entry-author'>
 		
 		<div class='author-avatar'>
 			<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>">
@@ -69,7 +69,7 @@ defined( 'ABSPATH' ) || exit;
 			</a>
 			
 			<!-- Author social media -->
-			<div class='author-social-media'>
+			<!--<div class='author-social-media'>
 				<?php
 					$author_id = get_the_author_meta( 'ID' ) ;
 					
@@ -97,10 +97,10 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 			
 			<!-- Author description -->
-			<div class='author-description'><?php the_author_meta( 'description' ); ?></div>
+			<!--<div class='author-description'><?php the_author_meta( 'description' ); ?></div>
 						
 		</div>
 		
-	</div>	
+	</div>-->
 
 </article><!-- #post-## -->
