@@ -25,4 +25,8 @@
 	color: $navy;
 	background-image: url('../assets/images/horizontal-line-pattern-monotone.png');
 	background-size: contain;
+	align-items: center;
+	@include respond-to('md'){
+		align-items: flex-start;	
+	}
 }

@@ -16,9 +16,9 @@ get_header(); ?>
 <!-- Hero image -->
 <?php include_once (get_template_directory() . '/global-templates/template-parts/hero.tpl'); ?>
 
-<section class='generic bg-grey font-navy'>
-	<?php if( have_rows('partner') ): ?>
-	
+
+<?php if( have_rows('partner') ): ?>
+	<section class='generic bg-grey font-navy'>	
 		<?php while( have_rows('partner') ): the_row(); 
 				$partner_image = get_sub_field('partner_image');
 				$partner_name = get_sub_field('partner_name');
@@ -45,8 +45,8 @@ get_header(); ?>
 				</div>
 	
 		<?php endwhile; ?>
-	<?php endif; ?>
-</section>
+	</section>
+<?php endif; ?>
 
 <?php get_template_part( 'loop-templates/content', 'flexible' ); ?>
 
