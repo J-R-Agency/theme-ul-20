@@ -531,7 +531,7 @@ if( have_rows('fc_content_block') ):
 						    	case "Events":
 						    		$arrow_color = "teal";
 						    		break;
-						    	case "Autism-Friendly Services";
+						    	case "Autism-friendly Services";
 						    		$arrow_color = "purple";
 						    		break;
 					    	}
