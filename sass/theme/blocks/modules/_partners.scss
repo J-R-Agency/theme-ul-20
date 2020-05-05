@@ -27,7 +27,7 @@
 		border: 3px solid white;
 		width: 200px;
 		height: 200px;
-		object-fit: cover;
+		object-fit: cover; 
 	}
 	@include respond-to('md') {
 		flex-basis: 30%;
