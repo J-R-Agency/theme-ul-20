@@ -14,12 +14,14 @@
 
 .navbar-dark .navbar-nav .nav-link {
 	color: $navy;
-	padding-right: 1.2rem;
-	padding-left: 1.2rem;
+	padding-right: 1rem;
+	padding-left: 1rem;
 	font-weight: bold;
 	font-size: 1rem;
 	@include respond-to('lg') {
 		font-size: 1.2rem;
+		padding-right: 1.2rem;
+		padding-left: 1.2rem;
 	}
 	&:hover {
 		color: $yellow;
