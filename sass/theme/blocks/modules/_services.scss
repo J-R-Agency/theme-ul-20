@@ -42,7 +42,6 @@
 .mds-service-icon {
 	display: flex;
 	flex-direction: row;
-	min-width: 300px;
 	margin: 1rem 0;
 	@include respond-to ('md') {
 		margin: 0;

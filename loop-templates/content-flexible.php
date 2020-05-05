@@ -114,17 +114,22 @@ if( have_rows('fc_content_block') ):
 						if( have_rows('mis_primary_icon_set') ):
 					    	while( have_rows('mis_primary_icon_set') ): the_row();
 						    	$mis_primary_icon_image = get_sub_field('mis_primary_icon_image');
+								$mis_link = get_sub_field('mis_link');
 								
 								echo "
 									<div class='col-6'>
 										<div class='primary-icon-container'>
 											<div class='row'>
 												<div class='col-12 col-md-6 col-lg-4 primary-icon-wrapper'>
-													<img src='".$mis_primary_icon_image['url']."' alt='".$mis_primary_icon_image['alt']. "' class='primary-icon'>
+													<a href='".$mis_link['url']."'>
+														<img src='".$mis_primary_icon_image['url']."' alt='".$mis_primary_icon_image['alt']. "' class='primary-icon'>
+													</a>
 												</div>
 											
 												<div class='col-12 col-md-6 col-lg-8 primary-icon-name'>
-													<span>".$mis_primary_icon_image['caption']."</span>
+													<a href='".$mis_link['url']."'>
+														<span>".$mis_primary_icon_image['caption']."</span>
+													</a>
 												</div>
 											</div>
 										</div>
