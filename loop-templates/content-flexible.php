@@ -279,6 +279,7 @@ if( have_rows('fc_content_block') ):
             $mowb_title = get_sub_field('mowb_title'); // Text
             $mowb_subtitle = get_sub_field('mowb_subtitle'); // Text
 			$mowb_style = get_sub_field('mowb_style'); // Select
+			$post_objects = get_sub_field('mowb_pages');
 			
 			// PRIMARY STYLE
 			if ($mowb_style == 'primary') {
@@ -342,6 +343,7 @@ if( have_rows('fc_content_block') ):
 			}
 			// SECONDARY STYLE
             elseif ($mowb_style == 'secondary') {
+	            
 	            echo 
 	            "<!-- Module Our Work Block -->	            
 		            <div class='secondary-mowb-container'>
@@ -350,42 +352,28 @@ if( have_rows('fc_content_block') ):
 						</div>
 						
 						<div class='thumb-container bg-white'>
-						";
-							$pageSlug = get_page_by_path( 'case-studies' );
+						"; 	
+						 	if ($post_objects):
+							 	foreach( $post_objects as $post ):
+									setup_postdata($post);
+										$cs_thumbnail = get_field('cs_thumbnail', $post->ID);
+										$global_standfirst = get_field('global_standfirst', $post->ID);
+										$link = get_the_permalink($post->ID);
+									 	echo "
+							        		<div class='thumb-wrapper'>
+									            <a href='".$link."'>
+									            	<div class='thumb-hover'>
+									            		<h1>".$global_standfirst['gs_subhead']."</h1>
+									            		<p>".$global_standfirst['gs_headline']."</p>
+									            	</div>
+									            	<img class='thumb-img' src='".$cs_thumbnail['url']."' alt='".$cs_thumbnail['alt']."'>
+									            </a>
+										    </div>  
+										";
+								endforeach;
+								wp_reset_postdata();
+							endif;
 							
-							$args = array(
-							    'post_type'      => 'page', //write slug of post type
-							    'posts_per_page' => 3,
-							    'post_parent'    => $pageSlug->ID, //place here id of your parent page
-							    'order'          => 'ASC',
-							    'orderby'        => 'menu_order'
-							 );
-							 
-							$children = new WP_Query( $args );
-							 
-							if ( $children->have_posts() ) :
-							 
-							     while ( $children->have_posts() ) : $children->the_post();
-								 	$cs_thumbnail = get_field('cs_thumbnail');
-								 	$global_standfirst = get_field('global_standfirst');
-							 
-							        echo "
-						        		<div class='thumb-wrapper'>
-								            <a href='",the_permalink(),"'>
-								            	<div class='thumb-hover'>
-								            		<h1>".$global_standfirst['gs_subhead']."</h1>
-								            		<p>".$global_standfirst['gs_headline']."</p>
-								            	</div>
-								            	<img class='thumb-img' src='".$cs_thumbnail['url']."' alt='".$cs_thumbnail['alt']."'>
-								            </a>
-									    </div>  
-									";
-							 
-							    endwhile; 
-							endif; 
-							wp_reset_query(); 											
-						
-	                  	
 							echo "
 						</div>
 					</div>"; // Close module_event_block
