@@ -42,7 +42,8 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+	justify-content: revert;
+	margin: 1rem 0;
 	@include respond-to ('md') {
 		margin: 0 2rem;
 		justify-content: space-evenly;
@@ -55,7 +56,7 @@
 	flex-direction: column;
 	justify-content: center;
 	padding: 0.5rem 1rem;
-	flex-basis: 10%;
+	flex-basis: auto;
 	@include respond-to ('md') {
 		flex-basis: 50%;	
 	}
