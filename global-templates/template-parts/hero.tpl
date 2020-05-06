@@ -1,6 +1,6 @@
 <?php
 /**
- * Global Standfirst
+ * Hero
  *
  * @package understrap
  */
