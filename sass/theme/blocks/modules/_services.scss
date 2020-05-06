@@ -31,9 +31,10 @@
 	display: flex;
 	padding-left: 0;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 	@include respond-to ('md') {
 		flex-direction: row;
+		align-items: center;
 	}
 }
 
@@ -41,8 +42,10 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: center;
 	@include respond-to ('md') {
 		margin: 0 2rem;
+		justify-content: flex-start;
 	}
 	
 }
@@ -52,7 +55,10 @@
 	flex-direction: column;
 	justify-content: center;
 	padding: 0.5rem 1rem;
-	flex-basis: 50%;
+	flex-basis: 10%;
+	@include respond-to ('md') {
+		flex-basis: 50%;	
+	}
 	.arrow {
 		width: 35px;
 	}
