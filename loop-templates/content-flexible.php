@@ -519,21 +519,21 @@ if( have_rows('fc_content_block') ):
 						    	case "Events":
 						    		$arrow_color = "teal";
 						    		break;
-						    	case "Autism-friendly Services";
+						    	case "Autism-Friendly Services";
 						    		$arrow_color = "purple";
 						    		break;
 					    	}
 							
 							echo "
 							<a href='".$mds_link['url']."'>
-								<div class='mds-service-icon'>
-										<img src='".$mds_service['url']."' alt='".$mds_service['alt']. "' class='service-icon'>
+								<div class='mds-service-wrapper'>
+									<img src='".$mds_service['url']."' alt='".$mds_service['alt']. "' class='service-icon'>
 									<div class='mds-service-caption'>
 										<span>".$mds_service['caption']."</span>
 											<img class='arrow'
 											src='".get_template_directory_uri()."/assets/icons/cat-arrow-$arrow_color.svg'>
 									</div>	
-								</div>	
+								</div>
 							</a>	
 							";
 							
