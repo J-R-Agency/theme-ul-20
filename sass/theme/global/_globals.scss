@@ -1,0 +1,108 @@
+@mixin patterned-border {
+	border-style: solid;
+	border-width: 0 0 30px 0;
+	border-image: url("../assets/images/horizontal-line-pattern.png") 100 0 repeat;
+}
+
+@mixin patterned-border-faded {
+	filter:opacity(30%);
+	border-style: solid;
+	border-width: 30px 0 0 0;
+	border-image: url("../assets/images/horizontal-line-pattern.png") 100 0 repeat;
+}
+
+@mixin global-padding {
+	padding: 3rem 1rem;
+	@include respond-to('md'){
+		padding: 3rem 5rem;
+	}
+	@include respond-to('lg'){
+		padding: 5rem 10rem;
+	}	
+}
+
+@mixin vertical-center {
+	display: flex;
+	align-items: center;
+}
+
+.vertical-center {
+	@include vertical-center;
+}
+
+.patterned-border {
+	@include patterned-border;
+}
+
+.patterned-border-faded {
+	@include patterned-border-faded;
+}
+
+.generic {
+	@include global-padding;
+}
+
+
+// COLORS ----
+
+.bg-white {
+	background-color: white;
+	color: $navy;
+}
+
+.bg-navy {
+	background-color: $navy;
+}
+
+.bg-grey {
+	background-color: $grey;
+	color: $navy;
+}
+
+.bg-purple {
+	background-color: $purple;
+}
+
+.bg-coral {
+	background-color: $coral;
+}
+
+.bg-teal {
+	background-color: $teal;
+}
+
+.bg-yellow {
+	background-color: $yellow;
+}
+
+.font-white {
+	color: white;
+}
+
+.font-navy {
+	color: $navy;
+}
+
+.font-grey {
+	color: $grey;
+}
+
+.font-purple {
+	color: $purple;
+}
+
+.font-coral {
+	color: $coral;
+}
+
+.font-teal {
+	color: $teal;
+}
+
+.font-yellow {
+	color: $yellow;
+}
+
+hr {
+	border: 1px solid $navy;
+}

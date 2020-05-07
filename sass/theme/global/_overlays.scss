@@ -1,0 +1,35 @@
+.overlay-mtf {
+	background-image: url('../assets/overlays/overlay-mtf.png');
+	background-repeat: no-repeat;
+	background-position: top left;
+	@include respond-to ('md') {
+		background-position: bottom left;
+	}
+}
+
+.overlay-mfb {
+	background-image: none;
+	@include respond-to ('md') {
+		background-image: url('../assets/overlays/overlay-mfb.png');
+		background-repeat: no-repeat;
+		background-position: right;
+		background-size: contain;
+	}
+}
+
+.overlay-mid {
+	background-image: none;
+	@include respond-to ('md') {
+		background-image: url('../assets/overlays/overlay-mid.png');
+		background-repeat: no-repeat;
+		background-position: bottom right;
+		background-size: 15%;
+	}
+}
+
+.overlay-service {
+	background-image: url('../assets/overlays/overlay-service.png');
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: 30%;
+}

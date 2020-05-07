@@ -1,0 +1,220 @@
+
+@mixin cat-arrow {
+	content: '';
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	margin-right: 0.5rem;
+}
+
+.post-container {
+	display: flex;
+	flex-direction: column-reverse;
+	@include respond-to('md') {
+		flex-direction: row;
+	}
+}
+
+.post-sidebar {
+	background-color: $grey;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	@include respond-to('md') {
+		padding: 5rem;
+		align-items: flex-start;
+	}
+	h2 {
+		@include _work-sans-semibold;
+	}
+	.social-media-icons {
+		border-bottom: 2px solid $navy;
+		padding-bottom: 2rem;
+	}
+	.categories-container {
+		margin: 2rem 0;
+	}
+}
+
+.categories-list {
+	list-style: none;
+	padding: 0;
+	
+	li {
+		margin: 1rem 0;
+		display: flex;
+		align-items: center;
+		
+		&.small-business-marketing {
+			a {
+				color: $purple;
+			}
+			&:before {
+				@include cat-arrow;
+				background-image: url(../assets/icons/cat-arrow-purple.svg);
+			}
+		}
+		&.business-planning {
+			a {
+				color: $coral;
+			}
+			&:before {
+				@include cat-arrow;
+				background-image: url(../assets/icons/cat-arrow-coral.svg);
+			}
+		}
+		&.events-planning {
+			a {
+				color: $teal;
+			}
+			&:before {
+				@include cat-arrow;
+				background-image: url(../assets/icons/cat-arrow-teal.svg);
+			}
+		}
+		&.social-media {
+			a {
+				color: $yellow;
+			}
+			&:before {
+				@include cat-arrow;
+				background-image: url(../assets/icons/cat-arrow-yellow.svg);
+			}
+		}
+		
+	}
+}
+
+.post-portrait {
+	border-radius: 50%;
+	width: 200px;
+	border: 3px solid white;
+	margin: 1rem 0;
+}
+
+.post-content {
+	padding: 2rem;
+	@include respond-to('md') {
+		padding: 5rem;
+	}
+	a {
+		color: $purple;
+	}
+	.cat-links {
+		display: none;
+	}
+}
+
+.post-categories {
+	list-style-type: none;
+	padding: 0;
+	margin: 2rem 0;
+	li {
+		display: flex;
+		align-items: center;
+		&:before {
+			@include cat-arrow;
+			background-image: url(../assets/icons/cat-arrow-purple.svg);
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+.entry-meta {
+	margin-bottom: 3rem;
+	.meta-separator {
+		color: $purple;
+		font-size: 1.5rem;
+	}
+	.by-author {
+		a {
+			color: $navy;
+		}
+	}
+}
+
+.entry-author {
+	background-color: $grey;
+	padding: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	@include respond-to('md') {
+		padding: 3rem;	
+	}
+	.author-avatar {
+		flex-basis: 100%;
+		@include respond-to('md') {
+			flex-basis: 30%;
+			justify-content: flex-start;
+		}
+		@include respond-to('lg') {
+			justify-content: center;
+		}
+	}
+	.entry-author-info {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 100%;
+		.author-link {
+			color: $navy;
+		}
+		h2 {
+			text-align: center;
+		}
+		@include respond-to('md') {
+			flex-basis: 70%;
+			h2 {
+				text-align: left;
+			}
+		}
+		.author-description, .author-description > p {
+			font-size: 0.8rem;
+		}
+	}
+}
+
+.entry-content {
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	
+	p {
+		strong {
+			@include _work-sans-semibold;
+			font-weight: normal;
+		}
+	}
+	
+	blockquote {
+		p {
+			margin: 2rem 0;
+			@include _work-sans-semibold;
+		}
+	}
+}
+
+.post-navigation {
+	border-top: 1px solid $navy;
+	border-bottom: 1px solid $navy;
+	.nav-links {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		span {
+			margin: 1rem 0;
+		}
+		a {
+			color: $navy;
+			font-weight: bold;
+			p {
+				margin: 0;
+				font-size: 0.9rem;
+				@include respond-to('md') {
+					font-size: inherit;
+				}
+			}
+		}
+	}
+}

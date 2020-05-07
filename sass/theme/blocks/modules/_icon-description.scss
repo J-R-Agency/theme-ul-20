@@ -1,0 +1,12 @@
+.mid-icon-description {
+	margin: 2rem 0;
+}
+
+.mid-icon {
+	display: flex;
+	justify-content: center;
+	margin: 2rem;
+	@include respond-to('md') {
+		margin: 0rem;
+	}
+}
