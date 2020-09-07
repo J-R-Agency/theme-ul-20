@@ -9,6 +9,11 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
+<?php
+	$gs_icon = get_field('gs_icon');
+?>
+
+
 <?php if( have_rows('global_standfirst') ): ?>
     <?php while( have_rows('global_standfirst') ): the_row(); 
 
@@ -21,14 +26,15 @@ defined( 'ABSPATH' ) || exit;
         $gs_subhead_color = get_sub_field('gs_subhead_color');
         $gs_text_color = get_sub_field('gs_text_color');
         $gs_horizontal_line = get_sub_field('gs_horizontal_line');
+        
     ?>
 
 	<section class="generic <?php echo $gs_background_color; ?>">
 		<div class="container">
 			<div class="row standfirst-left">
 				<div class="col-12 col-md-5">
-					<?php if (is_page_template( 'page-templates/about.php' )): ?>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/bird_icon_white.png" class="gs-headline-image">
+					<?php if ($gs_icon): ?>
+						<img src="<?php echo $gs_icon['url']; ?>" class="gs-headline-image">
 					<?php endif; ?>
 					<h1 class="<?php echo $gs_headline_color; ?>"><?php echo $gs_headline; ?></h1>
 					<?php if (is_page_template( 'page-templates/case-study.php' )): ?>

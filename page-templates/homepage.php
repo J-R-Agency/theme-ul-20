@@ -19,7 +19,7 @@ get_header(); ?>
 	<section>			
 		<div class="hero" style="background-image: url('<?php echo $thumb; ?>'); background-position: <?php if (!$featured_image_position){ echo 'center'; } else { echo $featured_image_position; } ?>">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/bird_icon_white.png" id="white-bird">
-			<h2>Business and marketing support that helps you soar like never before</h2>
+			<h2><?php the_field('homepage_lead_in'); ?></h2>
 			
 		</div>
 	<section>					
