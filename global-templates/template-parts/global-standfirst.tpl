@@ -9,14 +9,10 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<?php
-	$gs_icon = get_field('gs_icon');
-?>
-
-
 <?php if( have_rows('global_standfirst') ): ?>
-    <?php while( have_rows('global_standfirst') ): the_row(); 
-
+    <?php while( have_rows('global_standfirst') ): the_row();
+     
+		$gs_icon = get_field('gs_icon');
         $gs_headline = get_sub_field('gs_headline');
         $gs_subhead = get_sub_field('gs_subhead');
         $gs_intro = get_sub_field('gs_intro');
@@ -34,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 			<div class="row standfirst-left">
 				<div class="col-12 col-md-5">
 					<?php if ($gs_icon): ?>
-						<img src="<?php echo $gs_icon['url']; ?>" class="gs-headline-image">
+						<img src="<?php echo esc_url( $gs_icon['url'] ); ?>" class="gs-headline-image">
 					<?php endif; ?>
 					<h1 class="<?php echo $gs_headline_color; ?>"><?php echo $gs_headline; ?></h1>
 					<?php if (is_page_template( 'page-templates/case-study.php' )): ?>
