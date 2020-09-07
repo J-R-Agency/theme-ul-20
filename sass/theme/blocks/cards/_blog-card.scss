@@ -5,6 +5,8 @@
 .blog-container {
 	display: flex;
 	flex-direction: column-reverse;
+	margin: 0 auto;
+	max-width: 1440px;
 	@include respond-to('md') {
 		flex-direction: row;
 	}

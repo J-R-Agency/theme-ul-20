@@ -14,7 +14,8 @@
 
 .navbar-dark .navbar-nav .nav-link {
 	color: $navy;
-	padding-right: 1rem;
+	text-align: center;
+	padding-right: 0.5rem;
 	padding-left: 1rem;
 	font-weight: bold;
 	font-size: 1rem;
@@ -29,9 +30,17 @@
 	&:active, &:visited {
 		color: $navy;
 	}
-	
+}
+
+.navbar-dark .navbar-nav .show>.nav-link {
+	color: $navy;
 }
 
 .navbar-dark .navbar-toggler-icon {
 	background-image: url("../assets/images/hamburger-menu.svg")
+}
+
+.dropdown-item {
+	color: $navy;
+	font-size: 1rem;
 }

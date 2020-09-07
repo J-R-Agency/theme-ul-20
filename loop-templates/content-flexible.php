@@ -253,7 +253,7 @@ if( have_rows('fc_content_block') ):
 			
             echo 
             "<!-- Module Event Block -->
-            <section class='module_event_block'>";
+            <section class='container module_event_block'>";
 					
 				echo
 				"
@@ -346,7 +346,8 @@ if( have_rows('fc_content_block') ):
 	            
 	            echo 
 	            "<!-- Module Our Work Block -->	            
-		            <div class='secondary-mowb-container'>
+		            <div class='container secondary-mowb-container'>
+		            	
 		            	<div class='title-container bg-grey'>
 							<h1 class='font-navy'>".$mowb_title."</h1>
 						</div>
@@ -414,7 +415,7 @@ if( have_rows('fc_content_block') ):
 			
 			elseif ($mfb_style == 'secondary') {
 				echo 
-	            "<!-- Module Event Block -->
+	            "
 	            <section class='generic bg-grey overlay-mfb font-navy'>
 					<div class='container module_founder_block'>
 						<div class='row'>
@@ -431,7 +432,7 @@ if( have_rows('fc_content_block') ):
 							</div>
 						</div>
 					</div>
-				</section>"; // Close module_event_block
+				</section>";
 			}
 		
 		endif;
@@ -460,16 +461,18 @@ if( have_rows('fc_content_block') ):
 					$mid_description = get_sub_field('mid_description');
 					
 					echo "
-						<div class='container mid-icon-description'>
-							<div class='row'>
-								<div class='col-12 col-md-3'>
-									<div class='mid-icon'>
-										<img class='primary-icon' src='".$mid_icon['url']."' alt='".$mid_icon['alt']."'>
+						<div class='mid-icon-description'>
+							<div class='container'>
+								<div class='row'>
+									<div class='col-12 col-md-3'>
+										<div class='mid-icon'>
+											<img class='primary-icon' src='".$mid_icon['url']."' alt='".$mid_icon['alt']."'>
+										</div>
 									</div>
-								</div>
-								<div class='col-12 col-md-9'>
-									<h2 class='font-".$mid_font_color."'><strong>".$mid_title."</strong></h2>
-									<p class='font-navy'>".$mid_description."</p>
+									<div class='col-12 col-md-9'>
+										<h2 class='font-".$mid_font_color."'><strong>".$mid_title."</strong></h2>
+										<p class='font-navy'>".$mid_description."</p>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -495,7 +498,7 @@ if( have_rows('fc_content_block') ):
 			
             echo 
             "<section class='generic bg-white font-navy'>
-            	<div class='mds-services-container'>
+            	<div class='container mds-services-container'>
 	            	<div class='mds-services-title'>
 	            		<h1>".$mds_title."</h1>
 	            	</div>
@@ -554,7 +557,7 @@ if( have_rows('fc_content_block') ):
 			
             echo 
             "<section class='generic bg-navy font-white'>
-            	<div class='mcf-container'>
+            	<div class='container mcf-container'>
 	            	<div class='mcf-title'>
 	            		<img src='".get_template_directory_uri()."/assets/images/bird_icon_white.png'>
 	            		<h1>".$mcf_title."</h1>

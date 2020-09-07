@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
     ?>
 
 	<section class="generic <?php echo $gs_background_color; ?>">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row standfirst-left">
 				<div class="col-12 col-md-5">
 					<?php if (is_page_template( 'page-templates/about.php' )): ?>

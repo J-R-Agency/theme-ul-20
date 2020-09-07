@@ -32,8 +32,8 @@ get_header(); ?>
 		$cs_thumbnail = get_field('cs_thumbnail');
 		$global_standfirst = get_field('global_standfirst');
 	?>
-    	<div class="case-study-wrapper font-navy">
-	    	
+    	<div class="container case-study-wrapper font-navy">
+	    
 	    	<div class='case-study-desc'>
 		    	<h1 class='font-teal'><?php echo $global_standfirst['gs_subhead']; ?></h1>
 		    	<h2><?php the_title(); ?></h2>
