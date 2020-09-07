@@ -43,7 +43,8 @@ get_header(); ?>
 	<?php if( have_rows('cs_image_gallery') ):
 		$i = 1; // Set the increment variable
 		
-		echo '<section class="generic bg-white"><div id="carouselExampleSlidesNav2" class="carousel slide" data-ride="carousel">
+		echo '<section class="container generic bg-white">
+				<div id="carouselExampleSlidesNav2" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">';
 	 	
 	 	// loop through the rows of data for the tab header

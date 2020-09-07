@@ -12,7 +12,7 @@ get_header();
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
 				
-<section class="post-container">
+<section class="container post-container">
 	<?php include (get_template_directory() . '/global-templates/template-parts/post-sidebar.tpl'); ?>
 	<div class="post-content font-navy">
 		<?php while ( have_posts() ) : the_post(); ?>

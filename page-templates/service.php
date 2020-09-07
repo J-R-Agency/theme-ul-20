@@ -17,7 +17,7 @@ get_header(); ?>
 <?php include_once (get_template_directory() . '/global-templates/template-parts/hero.tpl'); ?>
 
 <section class='generic bg-white overlay-service' style='border-bottom: 1px solid #261844;'>
-	<div class='service-content-container'>
+	<div class='container service-content-container'>
 		<div class='service-title'>
 			<?php $title = get_the_title(); ?>
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/<?php echo sanitize_title($title); ?>-icon.png" alt="<?php echo $title?> Icon">
