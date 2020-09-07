@@ -23,5 +23,11 @@
 	.row {
 		width: 100%;
 	}
+	
+	.mfb_info {
+		display: flex;
+	    flex-direction: column;
+	    justify-content: center;		
+	}
 }
 
