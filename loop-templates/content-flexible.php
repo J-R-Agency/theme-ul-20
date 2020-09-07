@@ -419,12 +419,10 @@ if( have_rows('fc_content_block') ):
 	            <section class='generic bg-grey overlay-mfb font-navy'>
 					<div class='container module_founder_block'>
 						<div class='row'>
-							<div class='col-12 col-md-4'>
-								<div class='founder-image'>
-									<img class='founder-portrait' src='".$founder_image['url']."'>
-								</div>
+							<div class='col-12 col-md-5'>
+								<img src='".$founder_image['url']."'>
 							</div>
-							<div class='col-12 col-md-8'>
+							<div class='col-12 col-md-7'>
 								<h1 class='mfb_title-".$mfb_style."'>".$mfb_headline."</h1>
 								<p class='name'>".$founder_name."</p>
 								<p class='font-purple'><strong>Founder – Underwing</strong></p>
