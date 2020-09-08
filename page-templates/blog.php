@@ -26,7 +26,8 @@ get_header(); ?>
 			?>
 			
 		    <?php while ( $wp_query->have_posts() ) : $wp_query->the_post();
-			    $featured_image_position = get_field('featured_image_position');?>
+			    $featured_image_position = get_field('featured_image_position');
+			    ?>
 		    	<?php if( $wp_query->current_post == 0 && !is_paged() ) : ?>
 			    
 		    	<?php include_once (get_template_directory() . '/global-templates/template-parts/large-blog-card.tpl'); ?>

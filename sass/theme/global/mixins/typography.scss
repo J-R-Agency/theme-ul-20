@@ -12,6 +12,10 @@
 
 a {
 	@include _work-sans-regular;
+	&:hover {
+		color: inherit;
+		text-decoration: underline;
+	}
 }
 
 h1 {

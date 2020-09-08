@@ -1,0 +1,17 @@
+.subpage-cards {
+	.thumb-container {
+		.thumb-wrapper {
+			flex-basis: 100%;
+			@include respond-to('md') {
+				flex-basis: 46%;
+			}
+			
+		}
+		.thumb-hover {
+			display: block;
+			&:hover {
+				color: $yellow;
+			}
+		}
+	}
+}

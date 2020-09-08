@@ -1,5 +1,9 @@
 .blog-posts {
 	display: flex;
+	flex-direction: column;
+	@include respond-to('md') {
+		flex-direction: row;
+	}	
 }
 
 .blog-container {
@@ -28,7 +32,7 @@
 	flex-basis: 100%;
 	display: flex;
 	flex-direction: column;
-	padding: 2rem 1rem;
+	padding: 1rem 2rem 2rem 0;
 	flex-grow: 1;
 	max-width: 100%;
 	
@@ -62,7 +66,7 @@
 	flex-basis: 100%;
 	display: flex;
 	flex-direction: column;
-	padding: 2rem 1rem;
+	padding: 2rem 2rem 2rem 0;
 	a {
 		color: $navy;
 	}
@@ -105,5 +109,16 @@
 	@include respond-to ('md') {
 		flex-direction: row;
 		align-items: center;
+	}
+}
+
+.category-block {
+	.blog-card {
+		flex-basis: 100%;
+		max-width: 100%;
+		@include respond-to('md') {
+			flex-basis: 33%;
+			max-width: 33%;			
+		}		
 	}
 }

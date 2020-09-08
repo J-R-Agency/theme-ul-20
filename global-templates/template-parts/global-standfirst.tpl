@@ -24,7 +24,8 @@ defined( 'ABSPATH' ) || exit;
         $gs_horizontal_line = get_sub_field('gs_horizontal_line');
         
     ?>
-
+    
+    <?php if ($gs_headline): ?>
 	<section class="generic <?php echo $gs_background_color; ?>">
 		<div class="container">
 			<div class="row standfirst-left">
@@ -44,9 +45,10 @@ defined( 'ABSPATH' ) || exit;
 					<?php endif; ?>
 				</div>
 			</div>
-		</div>
+    	</div>
 	</section>
-	<section class="<?php if ( $gs_horizontal_line == true ) { echo 'patterned-border'; }?>"></section>
-
+	<section class="<?php if ( $gs_horizontal_line == true ) { echo 'patterned-border'; }?>"></section>  
+	<?php endif; ?>
+	  
     <?php endwhile; ?>
 <?php endif; ?>
