@@ -1,10 +1,28 @@
 .module_content_block {
 	img {
-		border-radius: 50%;
 		width: 100%;
-		padding: 3rem;
-		@include respond-to('lg'){
-			width: 80%;
+		padding: 0 0 2rem 0;
+		
+		@include respond-to('md') {
+			padding: 3rem;	
 		}
+		
+		&.rounded-img {
+			display: block;
+			margin: 0 auto 2rem auto;
+			width: 200px;
+			height: 200px;
+			padding: 0;
+			object-fit: cover;
+			border-radius: 50%;
+			@include respond-to('md') {
+				width: 400px;
+				height: 400px;
+			}
+		}
+	}
+	
+	.navy-button {
+		margin: 1rem 0;
 	}
 }
