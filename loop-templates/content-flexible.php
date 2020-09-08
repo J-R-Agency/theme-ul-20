@@ -216,14 +216,16 @@ if( have_rows('fc_content_block') ):
 								<div class='row'>
 									<div class='col-4'>
 										<div class='contact-icon'>
-											<a href='tel:".$footer_phone_number."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-call.png'></a>
+											<a href='tel:".$footer_phone_number."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-call.png'>
 											<p><strong>Call</strong></p>
+											</a>
 										</div>
 									</div>
 									<div class='col-4'>
 										<div class='contact-icon'>
-											<a href='mailto:".$footer_email."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-email.png'></a>
+											<a href='mailto:".$footer_email."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-email.png'>
 											<p><strong>Email</strong></p>
+											</a>
 										</div>
 									</div>	
 										
@@ -235,8 +237,9 @@ if( have_rows('fc_content_block') ):
 									if ($footer_social_media_type == "linkedin"):
 									echo "<div class='col-4'>
 											<div class='contact-icon'>
-												<a href='".$footer_social_media_link."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-social.png'></a>
+												<a href='".$footer_social_media_link."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-social.png'>
 												<p><strong>Social</strong></p>
+												</a>
 											</div>
 										</div>";
 									endif;
