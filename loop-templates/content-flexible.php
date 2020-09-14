@@ -753,7 +753,7 @@ if( have_rows('fc_content_block') ):
 	            	<h1>".$mbc_title."</h1>";
 					
 			if ($blog_category) {		
-			echo	"<p><a class='font-purple' href=".get_category_link($category->term_id).">Find out more about ".$bc_name."</a></p>
+			echo	"<p><a class='font-purple' href=".get_category_link($bc->term_id).">Find out more about ".$bc_name."</a></p>
 					
 					<div class='blog-posts category-block'>";
 				        
