@@ -686,7 +686,7 @@ if( have_rows('fc_content_block') ):
 						</div> <!-- end col -->
 					</div> <!-- end row -->
 				</div> <!-- end container -->
-			</section>"; // Close module_content_block 
+			</section>";
 
 
           // ------------------------------- //
@@ -726,7 +726,7 @@ if( have_rows('fc_content_block') ):
 						</div> <!-- end col -->
 					</div> <!-- end row -->
 				</div> <!-- end container -->
-			</section>"; // Close module_content_block 		
+			</section>";	
 
 
 
@@ -802,7 +802,7 @@ if( have_rows('fc_content_block') ):
             	    	
 			echo   "</div> <!-- end thumb-container -->
 				</div> <!-- end container -->
-			</section>"; // Close module_content_block 
+			</section>";
 			
  
  	   	  // -------------------------- //
