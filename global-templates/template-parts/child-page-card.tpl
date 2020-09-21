@@ -12,8 +12,6 @@ $theme_path = get_template_directory_uri();
 ?>
 
 <?php
-$thumbnail = get_the_post_thumbnail_url();
-
 if ($page_thumbnail) {
 	$page_img =  $page_thumbnail['url'];
 } elseif (!$page_thumbnail and $thumbnail) {
