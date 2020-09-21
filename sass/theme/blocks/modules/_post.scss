@@ -46,7 +46,7 @@
 		display: flex;
 		align-items: center;
 		
-		&.small-business-marketing {
+		&.purple {
 			a {
 				color: $purple;
 			}
@@ -55,7 +55,7 @@
 				background-image: url(../assets/icons/cat-arrow-purple.svg);
 			}
 		}
-		&.business-planning {
+		&.coral {
 			a {
 				color: $coral;
 			}
@@ -64,7 +64,7 @@
 				background-image: url(../assets/icons/cat-arrow-coral.svg);
 			}
 		}
-		&.events-planning {
+		&.teal {
 			a {
 				color: $teal;
 			}
@@ -73,7 +73,7 @@
 				background-image: url(../assets/icons/cat-arrow-teal.svg);
 			}
 		}
-		&.social-media {
+		&.yellow {
 			a {
 				color: $yellow;
 			}
@@ -88,9 +88,12 @@
 
 .post-portrait {
 	border-radius: 50%;
-	width: 200px;
-	border: 3px solid white;
-	margin: 1rem 0;
+    width: 200px;
+    border: 3px solid #fff;
+    margin: 1rem 0;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
 }
 
 .post-content {

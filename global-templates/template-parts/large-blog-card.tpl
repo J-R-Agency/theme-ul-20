@@ -34,7 +34,11 @@ defined( 'ABSPATH' ) || exit;
 					$san_cat = sanitize_title( $categories[0]->name );  
 				  }
 			?>
-	    	<li class='<?php echo $san_cat; ?>'><?php the_category(', '); ?></li>
+	    	<li class='<?php echo $category_color; ?>'>
+	    		<a href="<?php echo get_category_link($category->term_id); ?>">
+	    			<?php echo esc_html($categories[0]->cat_name); ?>
+	    		</a>
+	    	</li>
     	</ul>
 	</div>
 	

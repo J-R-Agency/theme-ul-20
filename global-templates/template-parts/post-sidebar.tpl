@@ -25,7 +25,9 @@ $theme_path = get_template_directory_uri();
 			<?php
 				$categories = get_categories();
 				foreach($categories as $category) {
-				   echo '<li class="'.$category->slug.'"><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
+					$category_color = get_field('category_color', $category);
+					
+				   echo '<li class="'.$category_color.'"><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
 				}
 			?>	 
 		</ul>

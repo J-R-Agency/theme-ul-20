@@ -14,11 +14,17 @@
 		width: 100px;
 		margin: 1rem 0;
 	}
+	p {
+		color: $navy;
+		text-align: center;
+	}
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .contact-map {
 	iframe {
-		width: 100%;
 		border: 5px solid white;
 		margin: 1rem;
 	}

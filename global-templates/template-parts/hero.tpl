@@ -16,4 +16,4 @@ $theme_path = get_template_directory_uri();
 	<section>			
 		<div class="hero" style="background-image: url('<?php echo $thumb; ?>'); background-position: <?php if (!$featured_image_position){ echo 'center'; } else { echo $featured_image_position; } ?>"></div>
 	<section>					
-<?php endif ?>
+<?php endif; ?>

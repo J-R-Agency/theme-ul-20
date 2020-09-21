@@ -9,6 +9,13 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
+<?php
+	$categories = get_the_category();
+
+	foreach($categories as $category) {
+		$category_color = get_field('category_color', $category);
+	}		
+?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
@@ -17,8 +24,13 @@ defined( 'ABSPATH' ) || exit;
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
-			
-			<?php echo the_category(); ?>
+			<ul class='categories-list'>
+		    	<li class="<?php echo $category_color; ?>">
+		    		<a href="<?php echo get_category_link($category->term_id); ?>">
+			    		<?php echo esc_html($categories[0]->cat_name); ?>
+			    	</a>
+			    </li>
+			</ul>
 			
 			<div class='by-author'>
 				By <?php the_author_posts_link(); ?>

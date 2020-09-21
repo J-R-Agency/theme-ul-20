@@ -10,8 +10,9 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <?php if( have_rows('global_standfirst') ): ?>
-    <?php while( have_rows('global_standfirst') ): the_row(); 
-
+    <?php while( have_rows('global_standfirst') ): the_row();
+     
+		$gs_icon = get_field('gs_icon');
         $gs_headline = get_sub_field('gs_headline');
         $gs_subhead = get_sub_field('gs_subhead');
         $gs_intro = get_sub_field('gs_intro');
@@ -21,14 +22,16 @@ defined( 'ABSPATH' ) || exit;
         $gs_subhead_color = get_sub_field('gs_subhead_color');
         $gs_text_color = get_sub_field('gs_text_color');
         $gs_horizontal_line = get_sub_field('gs_horizontal_line');
+        
     ?>
-
+    
+    <?php if ($gs_headline): ?>
 	<section class="generic <?php echo $gs_background_color; ?>">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row standfirst-left">
 				<div class="col-12 col-md-5">
-					<?php if (is_page_template( 'page-templates/about.php' )): ?>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/bird_icon_white.png" class="gs-headline-image">
+					<?php if ($gs_icon): ?>
+						<img src="<?php echo esc_url( $gs_icon['url'] ); ?>" class="gs-headline-image">
 					<?php endif; ?>
 					<h1 class="<?php echo $gs_headline_color; ?>"><?php echo $gs_headline; ?></h1>
 					<?php if (is_page_template( 'page-templates/case-study.php' )): ?>
@@ -42,9 +45,10 @@ defined( 'ABSPATH' ) || exit;
 					<?php endif; ?>
 				</div>
 			</div>
-		</div>
+    	</div>
 	</section>
-	<section class="<?php if ( $gs_horizontal_line == true ) { echo 'patterned-border'; }?>"></section>
-
+	<section class="<?php if ( $gs_horizontal_line == true ) { echo 'patterned-border'; }?>"></section>  
+	<?php endif; ?>
+	  
     <?php endwhile; ?>
 <?php endif; ?>

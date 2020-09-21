@@ -18,6 +18,7 @@ if( have_rows('fc_content_block') ):
     while ( have_rows('fc_content_block') ) : the_row();
 
 
+
           // -------------------------- //
          // --- CASE: CONTENT BLOCK ---//
         // -------------------------- //
@@ -26,7 +27,9 @@ if( have_rows('fc_content_block') ):
             $mcb_title = get_sub_field('mcb_title'); // Text
             $mcb_content = get_sub_field('mcb_content'); // WYSIWYG block
             $mcb_image = get_sub_field('mcb_image'); // Image
+            $mcb_image_style = get_sub_field('mcb_image_style'); // Image
             $mcb_style = get_sub_field('mcb_style'); // Select 
+			$mcb_link = get_sub_field('mcb_link'); // Link
 			
 			if ($mcb_style == "primary") {
 				echo 
@@ -46,25 +49,43 @@ if( have_rows('fc_content_block') ):
 				// IMAGE     	
             	if ( !empty( $mcb_image) ):
     				echo
-					"<div class='col-12 col-md-5'>
-						<img src='". $mcb_image['url'] ."'>
+					"<div class='col-12 col-sm-5'>
+						<img class='".$mcb_image_style."-img' src='". $mcb_image['url'] ."'>
 					</div>";
             	endif;
             	
             	// TITLE AND CONTENT      	
             	if ( !empty( $mcb_title ) ):
     				echo
-					"<div class='col-12 col-md-7'>
+					"<div class='col-12 col-sm-7'>
 						<h1 class='mcb_title'>". $mcb_title . "</h1>
-						<p class='mcb_content'>". $mcb_content . "</p>
-					</div>";
+						<p class='mcb_content'>". $mcb_content . "</p>";
+						
+		            	if ( $mcb_link ):
+		    				echo "
+		    				<a href='".$mcb_link['url']."' target='".$mcb_link['target']."'>
+		    					<div class='navy-button'>".$mcb_link['title']."</div>
+		    				</a>
+		    				";
+		            	endif; 
+		            							
+				echo "</div>";
             	endif;
+         	
+            	
 			} elseif ($mcb_style == "primary" or $mcb_style == "secondary") {
 				echo "
-					<div class='col-12 col-md-5'>
-						<h1 class='mcb_title'>". $mcb_title . "</h1>
-					</div>
-					<div class='col-12 col-md-7'>
+					<div class='col-12 col-sm-5'>
+						<h1 class='mcb_title'>". $mcb_title . "</h1>";
+		            	if ( $mcb_link ):
+		    				echo "
+		    				<a href='".$mcb_link['url']."' target='".$mcb_link['target']."'>
+		    					<div class='navy-button'>".$mcb_link['title']."</div>
+		    				</a>
+		    				";
+		            	endif;   						
+				echo "</div>
+					<div class='col-12 col-sm-7'>
 						<p class='mcb_content'>". $mcb_content . "</p>
 					</div>
 				";
@@ -80,6 +101,7 @@ if( have_rows('fc_content_block') ):
 			}
 			
 		endif;
+		
 		
 		
           // -------------------------- //
@@ -168,6 +190,8 @@ if( have_rows('fc_content_block') ):
 			</section>"; // Close module_content_block
 		endif;
 		
+		
+		
 
           // -------------------------- //
          // --- CASE: CONTACT BLOCK ---//
@@ -176,13 +200,13 @@ if( have_rows('fc_content_block') ):
             $footer_phone_number = get_field('footer_phone_number', 'option');
             $footer_email = get_field('footer_email', 'option');
             $footer_address = get_field('footer_address', 'option');
-
+			$map_embed = get_field('map_embed', 'option');
+			
             echo 
             "<!-- Contact Block -->
             <section class='generic bg-grey'>
 	            <div class='container module_contact_block'>
 					<div class='row'>
-					
 						<div class='col-12 col-md-6'>
 							<h1 class='contact-title'>Get in touch</h1>
 						</div>
@@ -192,14 +216,16 @@ if( have_rows('fc_content_block') ):
 								<div class='row'>
 									<div class='col-4'>
 										<div class='contact-icon'>
-											<a href='tel:".$footer_phone_number."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-call.png'></a>
+											<a href='tel:".$footer_phone_number."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-call.png'>
 											<p><strong>Call</strong></p>
+											</a>
 										</div>
 									</div>
 									<div class='col-4'>
 										<div class='contact-icon'>
-											<a href='mailto:".$footer_email."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-email.png'></a>
+											<a href='mailto:".$footer_email."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-email.png'>
 											<p><strong>Email</strong></p>
+											</a>
 										</div>
 									</div>	
 										
@@ -211,8 +237,9 @@ if( have_rows('fc_content_block') ):
 									if ($footer_social_media_type == "linkedin"):
 									echo "<div class='col-4'>
 											<div class='contact-icon'>
-												<a href='".$footer_social_media_link."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-social.png'></a>
+												<a href='".$footer_social_media_link."' target='_blank'><img src='".get_template_directory_uri()."/assets/icons/icon-social.png'>
 												<p><strong>Social</strong></p>
+												</a>
 											</div>
 										</div>";
 									endif;
@@ -223,7 +250,7 @@ if( have_rows('fc_content_block') ):
 								<div class='row'>
 									<div class='col-12 col-md-7'>
 										<div class='contact-map'>
-											<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2378.6215808602083!2d-2.9964308841594005!3d53.40370887999119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b212c58fb7037%3A0xe084e7ed59fdba7!2sAvenue%20HQ%20Mann%20Island!5e0!3m2!1sen!2suk!4v1586946360842!5m2!1sen!2suk' allowfullscreen='' aria-hidden='false' tabindex='0'></iframe>
+											".$map_embed."
 										</div>
 									</div>
 									<div class='col-12 col-md-5 vertical-center'>
@@ -241,6 +268,7 @@ if( have_rows('fc_content_block') ):
 		endif;
 		
 		
+		
           // -------------------------- //
          // ---- CASE: EVENT BLOCK ----//
         // -------------------------- //
@@ -253,7 +281,7 @@ if( have_rows('fc_content_block') ):
 			
             echo 
             "<!-- Module Event Block -->
-            <section class='module_event_block'>";
+            <section class='container module_event_block'>";
 					
 				echo
 				"
@@ -269,7 +297,9 @@ if( have_rows('fc_content_block') ):
                     	
 				echo "
 			</section>"; // Close module_event_block
-		endif;			
+		endif;
+		
+		
 
           // -------------------------- //
          // -- CASE: OUR WORK BLOCK ---//
@@ -316,18 +346,9 @@ if( have_rows('fc_content_block') ):
 								     while ( $children->have_posts() ) : $children->the_post();
 									 	$cs_thumbnail = get_field('cs_thumbnail');
 									 	$global_standfirst = get_field('global_standfirst');
+									 	$link = get_the_permalink();
 								 
-								        echo "
-							        		<div class='thumb-wrapper'>
-									            <a href='",the_permalink(),"'>
-									            	<div class='thumb-hover'>
-									            		<h1>".$global_standfirst['gs_subhead']."</h1>
-									            		<p>".$global_standfirst['gs_headline']."</p>
-									            	</div>
-									            	<img class='thumb-img' src='".$cs_thumbnail['url']."' alt='".$cs_thumbnail['alt']."'>
-									            </a>
-										    </div>  
-										";
+								        include (get_template_directory() . '/global-templates/template-parts/case-study-card.tpl');
 								 
 								    endwhile; 
 								endif; 
@@ -341,12 +362,14 @@ if( have_rows('fc_content_block') ):
 					</div>
 				</section>"; // Close module_event_block
 			}
+			
 			// SECONDARY STYLE
             elseif ($mowb_style == 'secondary') {
 	            
 	            echo 
 	            "<!-- Module Our Work Block -->	            
-		            <div class='secondary-mowb-container'>
+		            <div class='container secondary-mowb-container'>
+		            	
 		            	<div class='title-container bg-grey'>
 							<h1 class='font-navy'>".$mowb_title."</h1>
 						</div>
@@ -356,20 +379,12 @@ if( have_rows('fc_content_block') ):
 						 	if ($post_objects):
 							 	foreach( $post_objects as $post ):
 									setup_postdata($post);
-										$cs_thumbnail = get_field('cs_thumbnail', $post->ID);
-										$global_standfirst = get_field('global_standfirst', $post->ID);
-										$link = get_the_permalink($post->ID);
-									 	echo "
-							        		<div class='thumb-wrapper'>
-									            <a href='".$link."'>
-									            	<div class='thumb-hover'>
-									            		<h1>".$global_standfirst['gs_subhead']."</h1>
-									            		<p>".$global_standfirst['gs_headline']."</p>
-									            	</div>
-									            	<img class='thumb-img' src='".$cs_thumbnail['url']."' alt='".$cs_thumbnail['alt']."'>
-									            </a>
-										    </div>  
-										";
+									
+									$cs_thumbnail = get_field('cs_thumbnail', $post->ID);
+									$global_standfirst = get_field('global_standfirst', $post->ID);
+									$link = get_the_permalink($post->ID);
+								 
+							        include (get_template_directory() . '/global-templates/template-parts/case-study-card.tpl');									 					 
 								endforeach;
 								wp_reset_postdata();
 							endif;
@@ -380,9 +395,11 @@ if( have_rows('fc_content_block') ):
             }
 		endif;	
 		
-          // -------------------------- //
+		
+		
+          // ---------------------------- //
          // ---- CASE: FOUNDER BLOCK ----//
-        // -------------------------- //
+        // ---------------------------- //
         if( get_row_layout() == 'module_founder_block' ):
 			
 			$mfb_style = get_sub_field('mfb_style'); // Link
@@ -397,10 +414,10 @@ if( have_rows('fc_content_block') ):
 				<section class='generic bg-grey overlay-mtf'>
 					<div class='container module_founder_block'>
 						<div class='row'>
-							<div class='col-12 col-md-5'>
+							<div class='col-12 col-md-5 mfb_image'>
 								<img src='". $founder_image['url'] ."'>
 							</div>
-							<div class='col-12 col-md-7'>
+							<div class='col-12 col-md-7 mfb_info'>
 								<h1 class='mfb_title-".$mfb_style."'>". $mfb_headline . "</h1>
 								<p>". $founder_bio . "</p>
 							</div>
@@ -414,16 +431,14 @@ if( have_rows('fc_content_block') ):
 			
 			elseif ($mfb_style == 'secondary') {
 				echo 
-	            "<!-- Module Event Block -->
+	            "
 	            <section class='generic bg-grey overlay-mfb font-navy'>
 					<div class='container module_founder_block'>
 						<div class='row'>
-							<div class='col-12 col-md-4'>
-								<div class='founder-image'>
-									<img class='founder-portrait' src='".$founder_image['url']."'>
-								</div>
+							<div class='col-12 col-md-5 mfb_image'>
+								<img src='".$founder_image['url']."'>
 							</div>
-							<div class='col-12 col-md-8'>
+							<div class='col-12 col-md-7 mfb_info'>
 								<h1 class='mfb_title-".$mfb_style."'>".$mfb_headline."</h1>
 								<p class='name'>".$founder_name."</p>
 								<p class='font-purple'><strong>Founder – Underwing</strong></p>
@@ -431,10 +446,12 @@ if( have_rows('fc_content_block') ):
 							</div>
 						</div>
 					</div>
-				</section>"; // Close module_event_block
+				</section>";
 			}
 		
 		endif;
+		
+		
  
           // -------------------------- //
          // - CASE: ICON & DESCRIPTION -//
@@ -460,16 +477,18 @@ if( have_rows('fc_content_block') ):
 					$mid_description = get_sub_field('mid_description');
 					
 					echo "
-						<div class='container mid-icon-description'>
-							<div class='row'>
-								<div class='col-12 col-md-3'>
-									<div class='mid-icon'>
-										<img class='primary-icon' src='".$mid_icon['url']."' alt='".$mid_icon['alt']."'>
+						<div class='mid-icon-description'>
+							<div class='container'>
+								<div class='row'>
+									<div class='col-12 col-md-3'>
+										<div class='mid-icon'>
+											<img class='primary-icon' src='".$mid_icon['url']."' alt='".$mid_icon['alt']."'>
+										</div>
 									</div>
-								</div>
-								<div class='col-12 col-md-9'>
-									<h2 class='font-".$mid_font_color."'><strong>".$mid_title."</strong></h2>
-									<p class='font-navy'>".$mid_description."</p>
+									<div class='col-12 col-md-9'>
+										<h2 class='font-".$mid_font_color."'><strong>".$mid_title."</strong></h2>
+										<p class='font-navy'>".$mid_description."</p>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -484,6 +503,8 @@ if( have_rows('fc_content_block') ):
 			}
 			
 		endif; // End icon & description
+		
+		
 
           // -------------------------- //
          // - CASE: DISCOVER SERVICES -//
@@ -495,7 +516,7 @@ if( have_rows('fc_content_block') ):
 			
             echo 
             "<section class='generic bg-white font-navy'>
-            	<div class='mds-services-container'>
+            	<div class='container mds-services-container'>
 	            	<div class='mds-services-title'>
 	            		<h1>".$mds_title."</h1>
 	            	</div>
@@ -544,6 +565,8 @@ if( have_rows('fc_content_block') ):
 					</div>
 				</section>"; // Close module_content_block
 		endif; 
+		
+		
 
           // -------------------------- //
          // ---- CASE: CONTACT FORM ---//
@@ -554,7 +577,7 @@ if( have_rows('fc_content_block') ):
 			
             echo 
             "<section class='generic bg-navy font-white'>
-            	<div class='mcf-container'>
+            	<div class='container mcf-container'>
 	            	<div class='mcf-title'>
 	            		<img src='".get_template_directory_uri()."/assets/images/bird_icon_white.png'>
 	            		<h1>".$mcf_title."</h1>
@@ -567,6 +590,218 @@ if( have_rows('fc_content_block') ):
 					</div>
 				</div>
 			</section>"; // Close module_content_block 
+
+
+
+          // ---------------------------------- //
+         // -- CASE: AUTOMATIC SUBPAGE CARDS --//
+        // ---------------------------------- //
+        elseif( get_row_layout() == 'automatic_subpage_cards' ):
+
+            $asc_title = get_sub_field('asc_title'); // Text
+			$asc_background_color = get_sub_field('asc_background_color'); // Text
+			
+            echo 
+            "<section class='generic bg-".$asc_background_color."'>
+            	<div class='container subpage-cards'>
+            		<div class='row'>
+            			
+            			<div class='col-12 col-md-5'>
+	            			<h1>".$asc_title."</h1>
+	            		</div>
+					
+						<div class='col-12 col-md-7'>
+						<div class='thumb-container'>";
+
+					$pageSlug = get_the_ID();
+					
+					$args = array(
+					    'post_type'      => 'page', //write slug of post type
+					    'posts_per_page' => 4,
+					    'post_parent'    => $pageSlug, //place here id of your parent page
+					    'order'          => 'ASC',
+					    'orderby'        => 'menu_order'
+					 );
+					 
+					$children = new WP_Query( $args );
+					 
+					if ( $children->have_posts() ) :
+					 
+					     while ( $children->have_posts() ) : $children->the_post();
+					     
+					     	$page_thumbnail = get_field('page_thumbnail');
+						 	$link = get_the_permalink();
+						 	$title = get_the_title();
+					 
+					        include (get_template_directory() . '/global-templates/template-parts/child-page-card.tpl');
+					 
+					    endwhile; 
+					endif; 
+					wp_reset_query(); 
+            	    	
+			echo   "
+							</div> <!-- end thumb-container -->
+						</div> <!-- end col -->
+					</div> <!-- end row -->
+				</div> <!-- end container -->
+			</section>"; // Close module_content_block 
+
+
+          // ------------------------------- //
+         // -- CASE: MANUAL SUBPAGE CARDS --//
+        // ------------------------------- //
+        elseif( get_row_layout() == 'manual_subpage_cards' ):
+
+            $msc_title = get_sub_field('msc_title');
+			$msc_background_color = get_sub_field('msc_background_color');
+			$pages = get_sub_field('msc_pages');
+			
+            echo 
+            "<section class='generic bg-".$msc_background_color."'>
+            	<div class='container subpage-cards'>
+            		<div class='row'>
+            			
+            			<div class='col-12 col-md-5'>
+	            			<h1>".$msc_title."</h1>
+	            		</div>
+					
+						<div class='col-12 col-md-7'>
+						<div class='thumb-container'>";
+				        
+						if( $pages ):
+						    foreach( $pages as $page ): 
+						        $link = get_permalink( $page->ID );
+						        $title = get_the_title( $page->ID );
+						        $page_thumbnail = get_field( 'page_thumbnail', $page->ID );
+						        
+						         include (get_template_directory() . '/global-templates/template-parts/child-page-card.tpl');
+						            
+						    endforeach;
+						endif;	        
+				        
+            	    	
+			echo   "		</div> <!-- end thumb-container -->
+						</div> <!-- end col -->
+					</div> <!-- end row -->
+				</div> <!-- end container -->
+			</section>"; // Close module_content_block 
+
+
+          // ------------------------------- //
+         // -- CASE: MANUAL SUBPAGE CARDS --//
+        // ------------------------------- //
+        elseif( get_row_layout() == 'manual_subpage_cards' ):
+
+            $msc_title = get_sub_field('msc_title');
+			$msc_background_color = get_sub_field('msc_background_color');
+			$pages = get_sub_field('msc_pages');
+			
+            echo 
+            "<section class='generic bg-".$msc_background_color."'>
+            	<div class='container subpage-cards'>
+            		<div class='row'>
+            			
+            			<div class='col-12 col-md-5'>
+	            			<h1>".$msc_title."</h1>
+	            		</div>
+					
+						<div class='col-12 col-md-7'>
+						<div class='thumb-container'>";
+				        
+						if( $pages ):
+						    foreach( $pages as $page ): 
+						        $link = get_permalink( $page->ID );
+						        $title = get_the_title( $page->ID );
+						        $page_thumbnail = get_field( 'page_thumbnail', $page->ID );
+						        
+						        include (get_template_directory() . '/global-templates/template-parts/child-page-card.tpl');
+						            
+						    endforeach;
+						endif;	        
+				        
+            	    	
+			echo   "		</div> <!-- end thumb-container -->
+						</div> <!-- end col -->
+					</div> <!-- end row -->
+				</div> <!-- end container -->
+			</section>"; // Close module_content_block 		
+
+
+
+          // -------------------------- //
+         // -- CASE: BLOG CATEGORIES --//
+        // -------------------------- //
+        elseif( get_row_layout() == 'blog_category' ):
+
+            $mbc_title = get_sub_field('mbc_title');
+			$mbc_background_color = get_sub_field('mbc_background_color');
+			$blog_category = get_sub_field('blog_category');
+			$bc = get_term($blog_category);
+			$bc_name = $bc->name;
+			
+			if (!$mbc_title) {
+				$mbc_title = $bc_name;
+				if (!$blog_category) {
+					$mbc_title = "Latest blog posts";
+				}
+			}
+			
+            echo 
+            "<section class='generic bg-".$mbc_background_color."'>
+            	<div class='container'>
+            			
+	            	<h1>".$mbc_title."</h1>";
+					
+			if ($blog_category) {		
+			echo	"<p><a class='font-purple' href=".get_category_link($bc->term_id).">Find out more about ".$bc_name."</a></p>
+					
+					<div class='blog-posts category-block'>";
+				        
+					$args = array(
+					    'post_type'      => 'post',
+					    'posts_per_page' => 3,
+					    'order'          => 'DESC',
+					    'category__in'	 => $blog_category
+					);
+					 
+					$query = new WP_Query($args);
+					 
+					if ( $query->have_posts() ) :			 
+					    while ( $query->have_posts() ) : $query->the_post();
+						
+						include (get_template_directory() . '/global-templates/template-parts/small-blog-card.tpl');
+						
+						endwhile;
+					endif; 
+					wp_reset_query();
+			} else {
+				echo "
+				<p><a class='font-purple' href='".get_site_url()."/blog-archive'> Read more blog posts</a></p>
+					
+				<div class='blog-posts category-block'>";
+			        
+				$args = array(
+				    'post_type'      => 'post',
+				    'posts_per_page' => 3,
+				    'order'          => 'DESC',
+				);
+				 
+				$query = new WP_Query($args);
+				 
+				if ( $query->have_posts() ) :			 
+				    while ( $query->have_posts() ) : $query->the_post();
+					
+					include (get_template_directory() . '/global-templates/template-parts/small-blog-card.tpl');
+					
+					endwhile;
+				endif; 
+				wp_reset_query();				
+			}        
+            	    	
+			echo   "</div> <!-- end thumb-container -->
+				</div> <!-- end container -->
+			</section>"; // Close module_content_block 
+			
  
  	   	  // -------------------------- //
          // -- CASE: WP CONTENT BLOCK -//

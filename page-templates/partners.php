@@ -26,7 +26,7 @@ get_header(); ?>
 				$service_highlight = get_sub_field('service_highlight');
 				$service_description = get_sub_field('service_description');
 			?>
-				<div class='partner-container'>
+				<div class='container partner-container'>
 					<div class='partner-img'>
 						<img src="<?php echo $partner_image['url']; ?>" alt="<?php echo $partner_image['alt'] ?>" />
 					</div>

@@ -26,7 +26,7 @@ $theme_path = get_template_directory_uri();
 		<div class="patterned-border"></div>
 		<div class="wrapper" id="wrapper-footer">
 		
-			<div class="<?php echo esc_attr( $container ); ?>">
+			<div class="container">
 			
 				<div class="row">
 		
