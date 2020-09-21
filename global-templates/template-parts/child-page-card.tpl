@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 $theme_path = get_template_directory_uri();
 ?>
 
-<?php
+<?php 
 if ($page_thumbnail) {
 	$page_img =  $page_thumbnail['url'];
 } elseif (!$page_thumbnail and $thumbnail) {

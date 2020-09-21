@@ -674,20 +674,9 @@ if( have_rows('fc_content_block') ):
 						        $link = get_permalink( $page->ID );
 						        $title = get_the_title( $page->ID );
 						        $page_thumbnail = get_field( 'page_thumbnail', $page->ID );
-								$thumbnail = get_the_post_thumbnail_url($page->ID);
+								$thumbnail = get_the_post_thumbnail_url($page->ID); 
 						        
 						        include (get_template_directory() . '/global-templates/template-parts/child-page-card.tpl');
-						        
-						        /*echo "
-								<div class='thumb-wrapper'>
-								    <a href='".$link."'>
-								    	<div class='thumb-hover'>
-								    		<h1>".$title."</h1>
-								    	</div>
-								    	<img class='thumb-img' src='".$page_img."'>
-								    </a>
-								</div>
-						        ";*/
 						            
 						    endforeach;
 						endif;	        
