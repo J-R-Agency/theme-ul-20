@@ -475,18 +475,42 @@ if( have_rows('fc_content_block') ):
 					$mid_icon = get_sub_field('mid_icon');
 					$mid_title = get_sub_field('mid_title');
 					$mid_description = get_sub_field('mid_description');
+					$mid_link = get_sub_field('mid_link');
 					
 					echo "
 						<div class='mid-icon-description'>
 							<div class='container'>
 								<div class='row'>
 									<div class='col-12 col-md-3'>
-										<div class='mid-icon'>
-											<img class='primary-icon' src='".$mid_icon['url']."' alt='".$mid_icon['alt']."'>
-										</div>
+										<div class='mid-icon'>";
+										
+										if ($mid_link) {
+											echo "<a href='".$mid_link['url']."' target='".$mid_link['target']."'>";
+										}											
+										
+					echo				"<img class='primary-icon' src='".$mid_icon['url']."' alt='".$mid_icon['alt']."'>";
+					
+										if ($mid_link) {
+											echo "</a>";
+										}											
+											
+											
+				echo					"</div>
 									</div>
 									<div class='col-12 col-md-9'>
-										<h2 class='font-".$mid_font_color."'><strong>".$mid_title."</strong></h2>
+										<h2 class='font-".$mid_font_color."'>";
+									
+									if ($mid_link) {
+										echo "<a href='".$mid_link['url']."' target='".$mid_link['target']."'>";
+									}									
+				echo				"<strong>".$mid_title."</strong>";
+
+									if ($mid_link) {
+										echo "</a>";
+									}					
+				
+				echo					"
+											</h2>
 										<p class='font-navy'>".$mid_description."</p>
 									</div>
 								</div>
